@@ -1,275 +1,426 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V4WMSS4Y8K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-V4WMSS4Y8K');
-</script>
-<title>Tienda Online</title>
-<!-- Estilos CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!-- Carrusel -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-<!-- Enlace a la fuente Minecraftia -->
-<link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
-<style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4WMSS4Y8K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-V4WMSS4Y8K');
+  </script>
+  <title>Tienda Online</title>
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Carrusel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <!-- Enlace a la fuente Minecraftia -->
+  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+  <style>
     /* Estilos personalizados */
     body {
-        background: url("Fondo.jpeg") no-repeat center center fixed;
-        background-size: cover;
-        font-family: 'Minecraft', sans-serif; /* Utilizando la fuente Minecraftia */
-      
+      background-size: cover;
+      font-family: 'Minecraft', sans-serif;
+      /* Utilizando la fuente Minecraftia */
     }
 
     .carousel-container {
-        margin-top: 120px; /* Espacio entre el carrusel y la barra de navegación */
-        margin-bottom: 30px; /* Espacio entre el carrusel y la parte inferior de la página */
+      width: 101.2%;
+      height: auto;
+      background-image: url("imagenes/Back.jpeg");
+      /* Espacio entre el carrusel y la barra de navegación */
+      margin-bottom: 30px;
+      /* Espacio entre el carrusel y la parte inferior de la página */
+      border: 2px solid #ccc;
+      /* Añadir un contorno alrededor del carrusel */
+      border-radius: 5px;
+      /* Añadir bordes redondeados */
+      padding: 5px;
+      /* Añadir espacio interno alrededor del carrusel */
+      box-shadow: 0px 15px 10px rgba(46, 175, 210, 1.5);
     }
 
     /* Estilos para el navbar */
     .navbar {
-        background-color: rgba(244, 231, 231, 0.5); /* Fondo azul celeste con opacidad */
-        border-radius: 5px; /* Bordes redondeados */
-        box-shadow: 0px 5px 10px rgba(46, 175, 210, 0.2); /* Sombra */
-        font-family: 'minecraft-4', sans-serif; /* Utilizando la fuente Minecraftia */
+      width: 100%;
+      height: auto;
+      background-color: rgba(244, 231, 231, 0.8) !important;
+      /* Fondo azul celeste con opacidad */
+      border-radius: 5px;
+      /* Bordes redondeados */
+      box-shadow: 0px 5px 10px rgba(46, 175, 210, 1);
+      /* Sombra */
+      font-family: 'minecraft-4', sans-serif;
+      /* Utilizando la fuente Minecraftia */
+    }
 
+    owl-carousel .owl-item img {
+      border-radius: 10px;
+      /* Bordes redondeados */
+      border: 2px black !important;
+      max-width: 100%;
+      /* Ajuste del ancho máximo de las imágenes */
+      max-height: auto;
+      /* Ajuste de la altura máxima de las imágenes */
+      width: auto;
+      /* Ajuste del ancho automático */
+      height: auto;
+      /* Ajuste de la altura automática */
+      object-fit: cover;
+      /* Para que la imagen se ajuste dentro del contenedor sin perder su relación de aspecto */
     }
 
     .navbar-brand img {
-        width: 100px; /* Ajusta el tamaño de tu logotipo según sea necesario */
+      width: 100px;
+      /* Ajusta el tamaño de tu logotipo según sea necesario */
     }
 
     .navbar-nav .custom-item .nav-link {
-    font-family: 'Minecraft', sans-serif;
-    transition: color 0.3s;
-    margin-right: 20px;
-    font-size: 18px;
-    background: linear-gradient(to right, #5cb9db, #60d3b3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+      font-family: 'Minecraft', sans-serif;
+      transition: color 0.3s;
+      margin-right: 20px;
+      font-size: 18px;
+      background: linear-gradient(to right, #5cb9db, #60d3b3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.navbar-nav .custom-item .nav-link:hover {
-    background: linear-gradient(to right, #add8e6, #d974f2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+    .navbar-nav .custom-item .nav-link:hover {
+      background: linear-gradient(to right, #add8e6, #d974f2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.navbar-nav .custom-item .nav-link:active {
-    color: #ff0000;
-}
-
+    .navbar-nav .custom-item .nav-link:active {
+      color: #ff0000;
+    }
 
     /* Estilos para el carrusel */
     .owl-carousel {
-        margin-top: 10px;
+      width: 100%;
+      background-image: "/imagenes/Back.jpeg" !important;
+      margin-top: 10px;
     }
 
-    .owl-carousel .owl-item img {
-        border-radius: 10px;
-        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
-        max-width: 100%; /* Ajuste del ancho máximo de las imágenes */
-        max-height: 500px; /* Ajuste de la altura máxima de las imágenes */
-    }
-
-    .owl-prev, .owl-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 24px;
-        color: #1bb125;
+    .owl-prev,
+    .owl-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #1bb125;
     }
 
     .owl-prev {
-        left: -30px;
+      left: -30px;
     }
 
     .owl-next {
-        right: -30px;
+      right: -30px;
     }
+
     .tarjeta-producto {
-        width: 300px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-right: 20px;
-        margin-left: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 20px;
+      text-align: center;
+      width: 300px;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-right: 20px;
+      margin-left: 20px;
+      margin-top: 20px;
+      box-shadow: 0px 12px 20px rgba(46, 175, 210, 1.5);
+    }
+
+    .tarjeta-producto img {
+      width: 50%;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .contenido {
+      padding: 20px;
+    }
+
+    .Subtitle {
+      margin-top: 10px;
+      font-size: 60px;
+      text-align: center;
+      background: linear-gradient(to right, #98fbfc, #1ca1e9);
+      /* Cambia los colores según tu preferencia */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contenido h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .contenido p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .boton {
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 30px;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      background-image: linear-gradient(to right, #9885f4, #b4eafa); /* Degradado de colores */
+    }
+
+    .boton:hover {
+      background-color: #344f6d;
+    }
+
+    .contenedor-tarjetas {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .precio {
+      font-size: 16px;
+      /* Tamaño de fuente del precio */
+      color: #333;
+      /* Color del precio */
+    }
+
+    .footer {
+      margin-top: 100px;
+      background-color: #4992e0;
+      background-size: cover;
+      padding: 30px 0;
+      border-radius: 10px;
+      box-shadow: 0px 5px 10px rgba(46, 175, 210, 1);
+    }
+
+    .footer .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer .container .row {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+    .footer .container .row .col-md-3 {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .footer h4 {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer ul li a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .footer ul li a:hover {
+      color: #007bff;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .contenedor-tarjetas {
+        flex-direction: column;
+        align-items: center;
       }
-      
-      .tarjeta-producto img {
-        width: 100%;
-        height: auto;
-      }
-      
-      .contenido {
-        padding: 20px;
-      }
-      
-      .contenido h2 {
-        font-size: 20px;
-        margin-bottom: 10px;
-      }
-      
-      .contenido p {
-        font-size: 14px;
+
+      .tarjeta-producto {
+        width: 90%;
         margin-bottom: 20px;
       }
-      
-      .boton {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-      
-      .boton:hover {
-        background-color: #0056b3;
-      }
-      .contenedor-tarjetas {
-        display: flex;
-      }
-      .precio {
-        font-size: 16px; /* Tamaño de fuente del precio */
-        color: #333; /* Color del precio */
-      }
-</style>
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav custom-nav">
-            <li class="nav-item custom-item">
-                <a class="nav-link custom-link" href="#">Inicio</a>
-            </li>
-            <li class="nav-item custom-item">
-                <a class="nav-link custom-link" href="#">Productos</a>
-            </li>
-            <li class="nav-item custom-item">
-                <a class="nav-link custom-link" href="#">Contacto</a>
-            </li>
-        </ul>
-        
-        
+      <ul class="navbar-nav custom-nav">
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#">Inicio</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#">Productos</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#">Contacto</a>
+        </li>
+      </ul>
     </div>
-</nav>
+  </nav>
 
-
-
-<!-- Carrusel de imágenes -->
-<div class="container mt-4">
-    <div class="row justify-content-end carousel-container">
-    <div class="col-md-8 ml-auto"> <!-- Ajuste del tamaño de la columna y margen izquierdo automático -->
-        <!-- Carrusel de imágenes -->
-        <div class="owl-carousel owl-theme">
-            <div class="item"><img src="https://i.ibb.co/m5SPGSq/Fabuoloso.png" alt="Descripción de la imagen 1"></div>
-            <div class="item"><img src="https://i.ibb.co/VYRsWL6/Lysol.png" alt="Descripción de la imagen 2"></div>
-            <div class="item"><img src="https://i.ibb.co/KsNw4Cq/PinolFF.jpg" alt="Descripción de la imagen 3"></div>
-        </div>
+  <!-- Carrusel de imágenes -->
+  <div class="row justify-content-center carousel-container" style="margin-top: 0;">
+    <div class="col-md-12"> <!-- Cambiado de col-md-8 a col-md-12 para ocupar todo el ancho -->
+      <!-- Carrusel de imágenes -->
+      <div class="owl-carousel owl-theme">
+        <div class="item"><img src="/imagenes/Fabuloso.png" alt="Descripción de la imagen 1"></div>
+        <div class="item"><img src="/imagenes/Lysol.png" alt="Descripción de la imagen 2"></div>
+        <div class="item"><img src="/imagenes/foca.png" alt="Descripción de la imagen 3"></div>
+      </div>
     </div>
+  </div>
+
+  <!-- Contenido -->
+  <h2 class="Subtitle">---------------Productos------------------</h2>
+  <div class="contenedor-tarjetas">
+    <div class="tarjeta-producto">
+      <img src="imagenes/1.png" alt="Producto">
+      <div class="contenido">
+        <h2>Ariel de 5L</h2>
+        <p>Contiene una fórmula que te permite usar menos producto por carga de lavado.</p>
+        <p class="precio">$100</p>
+        <a href="detalle.html">
+          <button class="boton">Ver detalles</button>
+        </a>
+      </div>
+    </div>
+    <div class="tarjeta-producto">
+      <img src="imagenes/2.png" alt="Producto">
+      <div class="contenido">
+        <h3>Lysol</h3>
+        <p>Este producto cuenta con envase recargable para contribuir al medio ambiente.</p>
+        <p class="precio">$7.99</p>
+        <a href="detalle2.html">
+        <button class="boton">Ver detalles</button>
+      </a>
+      </div>
+    </div>
+    <div class="tarjeta-producto">
+      <img src="imagenes/3.jpeg" alt="Producto">
+      <div class="contenido">
+        <h2>Windex</h2>
+        <p>¡Con Windex añade brillo a tu vida! Es nuestra mejor solución para iluminar y dar brillo a su hogar.</p>
+        <p class="precio">$4.99</p>
+        <a href="detalle3.html">
+        <button class="boton">Ver detalles</button>
+        </a>
+      </div>
+    </div>
+    <div class="tarjeta-producto">
+      <img src="imagenes/4.jpg" alt="Producto">
+      <div class="contenido">
+        <h2>Lysol Pro|</h2>
+        <p>Contiene una solución que se disuelve con agua, ofreciendo una solución más compacta y fácil de almacenar.</p>
+        <p class="precio">$6.99</p>
+        <a href="detalle4.html">
+          <button class="boton">Ver detalles</button>
+        </a>
+      </div>
     </div>
     
-</div>
+  </div>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h4>Información</h4>
+          <ul>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Clientes</h4>
+          <ul>
+            <li><a href="#">Mi cuenta</a></li>
+            <li><a href="#">Historial de pedidos</a></li>
+            <li><a href="#">Wishlist</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Soporte</h4>
+          <ul>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#">Envíos</a></li>
+            <li><a href="#">Devoluciones</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Redes sociales</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-
-<!-- Scripts JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-
-<!-- Carrusel -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script>
-    $(document).ready(function(){
-    $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        nav:true,
-        autoplay:true,
-        autoplayTimeout:3000,
-        autoplayHoverPause:true,
-        responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:2
-        },
-        1000:{
-            items:3
+  <!-- Scripts JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Carrusel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 2
+          },
+          1000: {
+            items: 3
+          }
         }
-        }
+      });
     });
-    });
-</script>
-
-<div class="contenedor-tarjetas">
-
-<div class="tarjeta-producto">
-    <img src="imagenes/1.png" alt="Producto">
-    <div class="contenido">
-      <h2>Ariel de 5L</h2>
-      <p>Contiene una fórmula que te permite usar menos producto por carga de lavado.</p>
-      <p class="precio">$100</p>
-      <a href="detalle.html">
-      <button class="boton">Ver detalles</button>
-    </a>
-    </div>
-  </div>
-
-  <div class="tarjeta-producto">
-    <img src="imagenes/2.png" alt="Producto">
-    <div class="contenido">
-      <h2>Lysol</h2>
-      <p>Este producto cuenta con envase recargable para contribuir al medio ambiente.</p>
-      <p class="precio">$7.99</p>
-      <button class="boton">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="tarjeta-producto">
-    <img src="imagenes/3.png" alt="Producto">
-    <div class="contenido">
-      <h2>Limpiador de vidrios</h2>
-      <p>Su fórmula concentrada no deja rayas ni residuos permitiéndote una limpieza más profunda.</p>
-      <p class="precio">$4.99</p>
-      <button class="boton">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="tarjeta-producto">
-    <img src="imagenes/4.png" alt="Producto">
-    <div class="contenido">
-      <h2>Lysol Pro|</h2>
-      <p>Contiene una solución que se disuelve con agua, ofreciendo una solución más compacta y fácil de almacenar.</p>
-      <p class="precio">$6.99</p>
-      <button class="boton">Ver detalles</button>
-    </div>
-  </div>
-</div>
-
+  </script>
 </body>
+
 </html>

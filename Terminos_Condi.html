@@ -16,10 +16,7 @@
   <title>Términos y condiciones</title>
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Carrusel -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
   <!-- Enlace a la fuente Minecraftia -->
   <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
   <style>
@@ -28,22 +25,6 @@
       background-size: cover;
       font-family: 'Minecraft', sans-serif;
       /* Utilizando la fuente Minecraftia */
-    }
-
-    .carousel-container {
-      width: 101.2%;
-      height: auto;
-      background-image: url("imagenes/Back.jpeg");
-      /* Espacio entre el carrusel y la barra de navegación */
-      margin-bottom: 30px;
-      /* Espacio entre el carrusel y la parte inferior de la página */
-      border: 2px solid #ccc;
-      /* Añadir un contorno alrededor del carrusel */
-      border-radius: 5px;
-      /* Añadir bordes redondeados */
-      padding: 5px;
-      /* Añadir espacio interno alrededor del carrusel */
-      box-shadow: 0px 15px 10px rgba(46, 175, 210, 1.5);
     }
 
     /* Estilos para el navbar */
@@ -60,21 +41,6 @@
       /* Utilizando la fuente Minecraftia */
     }
 
-    owl-carousel .owl-item img {
-      border-radius: 10px;
-      /* Bordes redondeados */
-      border: 2px black !important;
-      max-width: 100%;
-      /* Ajuste del ancho máximo de las imágenes */
-      max-height: auto;
-      /* Ajuste de la altura máxima de las imágenes */
-      width: auto;
-      /* Ajuste del ancho automático */
-      height: auto;
-      /* Ajuste de la altura automática */
-      object-fit: cover;
-      /* Para que la imagen se ajuste dentro del contenedor sin perder su relación de aspecto */
-    }
 
     .navbar-brand img {
       width: 100px;
@@ -101,12 +67,7 @@
       color: #ff0000;
     }
 
-    /* Estilos para el carrusel */
-    .owl-carousel {
-      width: 100%;
-      background-image: "/imagenes/Back.jpeg" !important;
-      margin-top: 10px;
-    }
+   
 
     .owl-prev,
     .owl-next {
@@ -141,35 +102,24 @@
       box-shadow: 0px 12px 20px rgba(46, 175, 210, 1.5);
     }
 
-    .tarjeta-producto img {
-      width: 50%;
-      height: auto;
-      max-width: 100%;
-    }
 
     .contenido {
-      padding: 20px;
-      
+      padding: 5%;
+     width: 100%; 
+     justify-content: center;
+     
     }
 
-    .Subtitle {
-      margin-top: 10px;
-      font-size: 60px;
-      text-align: center;
-      background: linear-gradient(to right, #98fbfc, #1ca1e9);
-      /* Cambia los colores según tu preferencia */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
 
     .contenido h2 {
-      font-size: 20px;
+      font-size: 24px;
       margin-bottom: 10px;
     }
 
     .contenido p {
-      font-size: 14px;
+      font-size: 20px;
       margin-bottom: 20px;
+      margin-right: 2%;
       
     }
 
@@ -200,59 +150,7 @@
       
     }
 
-    .precio {
-      font-size: 16px;
-      /* Tamaño de fuente del precio */
-      color: #333;
-      /* Color del precio */
-    }
-
-    .footer {
-      margin-top: 100px;
-      background-color: #4992e0;
-      background-size: cover;
-      padding: 30px 0;
-      border-radius: 10px;
-      box-shadow: 0px 5px 10px rgba(46, 175, 210, 1);
-    }
-
-    .footer .container {
-      display: flex;
-      justify-content: center;
-    }
-
-    .footer .container .row {
-      margin-left: -15px;
-      margin-right: -15px;
-    }
-
-    .footer .container .row .col-md-3 {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-
-    .footer h4 {
-      font-size: 18px;
-      color: #333;
-    }
-
-    .footer ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer ul li {
-      margin-bottom: 10px;
-    }
-
-    .footer ul li a {
-      color: #555;
-      text-decoration: none;
-    }
-
-    .footer ul li a:hover {
-      color: #007bff;
-    }
+ 
 
     @media only screen and (max-width: 768px) {
       .contenedor-tarjetas {
@@ -273,7 +171,7 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo"></a>
+    <a class="navbar-brand" href="Princi.html"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -302,21 +200,20 @@
       <div class="contenido">
 
         <h2>Términos y Condiciones - Limpieza Plus</h2>
-        <ul>
+        <ul style="padding-left: 0%;">
           <li style="list-style: none;"><b>Información del Sitio Web:</b>
-            <ul style="text-align: justify;">
-              <li>Limpieza Plus se esfuerza por proporcionar información precisa y actualizada sobre nuestros productos, incluyendo descripciones, precios y disponibilidad. Sin embargo, no garantizamos la exactitud o integridad de esta información, y nos reservamos el derecho de corregir cualquier error o actualizar la información en cualquier momento sin previo aviso.</li>
-              <li>Nos esforzamos por mostrar los colores y las imágenes de nuestros productos con la mayor precisión posible. Sin embargo, la visualización real dependerá del monitor y la configuración del dispositivo, y no podemos garantizar que la pantalla de tu dispositivo refleje con precisión los colores de nuestros productos.</li>
+            <ul style="padding-left:0%;">
+              <li ><p style="text-align: justify;">Limpieza Plus se esfuerza por proporcionar información precisa y actualizada sobre nuestros productos, incluyendo descripciones, precios y disponibilidad. Sin embargo, no garantizamos la exactitud o integridad de esta información, y nos reservamos el derecho de corregir cualquier error o actualizar la información en cualquier momento sin previo aviso.</p></li>
+              <li><p style="text-align: justify;">Nos esforzamos por mostrar los colores y las imágenes de nuestros productos con la mayor precisión posible. Sin embargo, la visualización real dependerá del monitor y la configuración del dispositivo, y no podemos garantizar que la pantalla de tu dispositivo refleje con precisión los colores de nuestros productos.</p></li>
             </ul>
           </li>
           <li style="list-style: none;" ><b>Compra de Productos:</b>
-            <ul style="text-align: justify;">
-              <li>Al realizar una compra en Limpieza Plus, aceptas proporcionar información precisa y actualizada, incluyendo datos de contacto y dirección de envío. Nos comprometemos a proteger la privacidad y seguridad de tu información personal, de acuerdo con nuestra Política de Privacidad.</li>
-              <li>El pago de los productos se realizará a través de los métodos de pago disponibles en nuestro sitio web. Todos los precios están en la moneda local y están sujetos a cambios sin previo aviso.</li>
-              <li>Nos reservamos el derecho de rechazar o cancelar cualquier pedido por cualquier motivo, incluyendo la disponibilidad de productos, errores en los precios o violaciones de estos Términos.</li>
+            <ul style="padding-left: 0%;">
+              <li><p style="text-align: justify;">Al realizar una compra en Limpieza Plus, aceptas proporcionar información precisa y actualizada, incluyendo datos de contacto y dirección de envío. Nos comprometemos a proteger la privacidad y seguridad de tu información personal, de acuerdo con nuestra Política de Privacidad. </p></li>
+              <li><p style="text-align: justify;"> El pago de los productos se realizará a través de los métodos de pago disponibles en nuestro sitio web. Todos los precios están en la moneda local y están sujetos a cambios sin previo aviso. </p></li>
+              <li> <p style="text-align: justify;"> Nos reservamos el derecho de rechazar o cancelar cualquier pedido por cualquier motivo, incluyendo la disponibilidad de productos, errores en los precios o violaciones de estos Términos. </p></li>
             </ul>
           </li>
-    
         </ul>  </p>
         <a href="Princi.html">
   <button class="boton">Aceptar</button>

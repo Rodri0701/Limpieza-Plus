@@ -96,6 +96,31 @@
       background-color: #0056b3;
     }
 
+    .reseña {
+      width: 80%;
+      margin: 50px auto;
+    }
+    .reseña h3 {
+      font-size: 25px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .reseña .comentario {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .reseña .comentario p {
+      font-size: 18px;
+    }
+    .reseña .comentario .usuario {
+      font-weight: bold;
+    }
+    .reseña .comentario .fecha {
+      color: #888;
+    }
+
     @media (max-width: 768px) {
       .tarjeta-detalle {
         flex-direction: column;
@@ -106,6 +131,7 @@
       .contenido {
         width: 100%;
       }
+
     }
   </style>
   <title>Detalles del Producto</title>
@@ -147,6 +173,19 @@
   </div>
 </div>
 
+<div class="reseña">
+  <h3 class="Subtitle">Reseñas de los cliente</h3>
+  <div class="comentario">
+    <p class="usuario">Angel Ornelas</p>
+    <p class="fecha">29 de abril de 2024</p>
+    <p>Excelente producto, deja la ropa muy limpia y con un olor fresco. Lo recomiendo totalmente.</p>
+  </div>
+  <div class="comentario">
+    <p class="usuario">Rodrigo Palos</p>
+    <p class="fecha">28 de abril de 2024</p>
+    <p>Muy buen detergente, además rinde mucho, con poca cantidad de producto se lava toda la ropa.</p>
+  </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

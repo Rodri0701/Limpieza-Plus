@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4WMSS4Y8K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-V4WMSS4Y8K');
+  </script>
+
+<style>
+    .navbar {
+      width: 100% ;
+      height: auto;
+      background-color: rgba(244, 231, 231, 0.8)!important; /* Fondo azul celeste con opacidad */
+      border-radius: 5px; /* Bordes redondeados */
+      box-shadow: 0px 5px 10px rgba(46, 175, 210, 1); /* Sombra */
+      font-family: 'minecraft-4', sans-serif; /* Utilizando la fuente Minecraftia */
+    }
+    .navbar-brand img {
+      width: 100px; /* Ajusta el tamaño de tu logotipo según sea necesario */
+    }
+    .navbar-nav .custom-item .nav-link {
+      font-family: 'Minecraft', sans-serif;
+      transition: color 0.3s;
+      margin-right: 20px;
+      font-size: 18px;
+      background: linear-gradient(to right, #5cb9db, #60d3b3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .navbar-nav .custom-item .nav-link:hover {
+      background: linear-gradient(to right, #add8e6, #d974f2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .navbar-nav .custom-item .nav-link:active {
+      color: #ff0000;
+    }
+    /* Estilos para la tarjeta de detalle */
+    .tarjeta-detalle {
+      width: 80%;
+      margin: 50px auto;
+      display: flex;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 1.5);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .tarjeta-detalle img {
+      width: 50%;
+      object-fit: cover;
+    }
+    .contenido {
+      padding: 25px;
+      width: 50%;
+      background-color: #babbbc;
+    }
+    .contenido h5 {
+  text-align: center;
+  font-size: 35px;
+  background: linear-gradient(to right, #63abe1, #178b8d); /* Cambia estos colores por tu degradado deseado */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+    .contenido p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .precio {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .boton {
+ font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  padding: 10px 20px;
+  color: #000000;
+  background: linear-gradient(to right, #63abe1, #178b8d); /* Cambia estos colores por tu degradado deseado */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+    }
+    .boton:hover {
+      background-color: #0056b3;
+    }
+</style>
+<title>Detalles del Producto</title>
+<link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="Princi.html"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav custom-nav">
+                <li class="nav-item custom-item">
+                    <a class="nav-link custom-link" href="Princi.html">Inicio</a>
+                </li>
+                <li class="nav-item custom-item">
+                    <a class="nav-link custom-link" href="#">Productos</a>
+                </li>
+                <li class="nav-item custom-item">
+                    <a class="nav-link custom-link" href="#">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="tarjeta-detalle">
+      <img src="imagenes/4.jpg" alt="Producto Grande">
+      <div class="contenido">
+        <h5>Lysol Pro</h5>
+        <p>Mata el 99,9% de las bacterias para una limpieza completa.
+            Mata estacas, pseudomonas, E. coli, VIH-1 (virus del SIDA) y otros gérmenes nocivos.
+            Limpia, desodoriza y desinfecta inodoros, urinarios y superficies duras y no porosas.
+            Viene en una botella sin desperdicio y cuello en ángulo.
+            Deja un aroma verde de invierno para un baño más agradable.</p>
+        <p class="precio">$1470 pesos</p>
+        <button class="boton">Añadir a favoritos</button>
+        <button class="boton">Añadir a carrito</button>
+      </div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

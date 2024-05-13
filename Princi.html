@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4WMSS4Y8K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-V4WMSS4Y8K');
+  </script>
+  <title>Limpieza Plus</title>
+  <meta name="description" content="Tu Solución de Limpieza Profesional">
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Carrusel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <!-- Enlace a la fuente Minecraftia -->
+  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+  <link rel="stylesheet" href="Princi.css">
+</head>
+
+<body onload="mostrarAlerta()">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav custom-nav">
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="Princi.html">Inicio</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#producte">Productos</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="Login.html">Inicio Sesion</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#Foot">Contacto</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#" onclick="toggleAdminPanel()">Administrador</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Carrusel de imágenes -->
+  <div class="row justify-content-center carousel-container" style="margin-top: 0;">
+    <div class="col-md-12"> <!-- Cambiado de col-md-8 a col-md-12 para ocupar todo el ancho -->
+      <!-- Carrusel de imágenes -->
+      <div class="owl-carousel owl-theme">
+        <div class="item"><a href="detalle.html"><img src="imagenes/Fabuloso.png" alt="Descripción de la imagen 1" title="DP1"></a></div>
+        <div class="item"><a href="detalle2.html"><img src="imagenes/Lysol.png" alt="Descripción de la imagen 2" title="DP2"></a></div>
+        <div class="item"><a href="detalle3.html"><img src="imagenes/foca.png" alt="Descripción de la imagen 3" title="DP3"></a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <h2 id="producte" class="Subtitle">---------------Productos------------------</h2>
+  <div class="contenedor-tarjetas" id="productContainer">
+    <!-- Aquí se cargarán las tarjetas de productos -->
+  </div>
+
+  <!-- Panel de administrador -->
+  <div id="adminPanel">
+    <!-- Formulario de administrador -->
+  </div>
+
+  <!-- Footer -->
+  <footer id="Foot" class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h4>Información</h4>
+          <ul>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="Terminos_Condi.html">Términos y condiciones</a></li>
+            <li><a href="Politica.html">Política de privacidad</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Clientes</h4>
+          <ul>
+            <li><a href="#">Mi cuenta</a></li>
+            <li><a href="#">Historial de pedidos</a></li>
+            <li><a href="#">Wishlist</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Soporte</h4>
+          <ul>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#">Política de reembolso</a></li>
+            <li><a href="#">Métodos de pago</a></li>
+            <li><a href="#">Soporte técnico</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Redes sociales</h4>
+          <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=61558889497777&mibextid=LQQJ4d">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="https://www.instagram.com/limpieza_pluss?igsh=ZWVueGcyMWhsMmFw">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript y JQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Carrusel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="Principal.js"></script>
+  <script src="Productos.js"></script>
+</body>
+
+</html>

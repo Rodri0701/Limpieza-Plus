@@ -7,7 +7,7 @@ var productos = [
     { nombre: "Harpic Power Ultra Todo en 1 Original 2 Pack 750ml c/u", descripcion: "Su fórmula biodegradable permite desatascar las tuberías de manera efectiva y sin dañarlas.", precio: "$110 Mx", imagen: "imagenes/5.jpg", url: "detalle5.html" },
     { nombre: "Vanish Quitamanchas en Gel Multiusos para Ropa de Color 3.6 L", descripcion: "Funciona a temperatura más baja ayudando a ahorrar energía y proteger los tejidos delicados.", precio: "$179 Mx", imagen: "imagenes/6.png", url: "detalle6.html" },
     { nombre: "Pinol El Original limpiador multiusos desinfectante pino 3.7 lt", descripcion: "Fórmula biodegradable que contribuye al impacto ambiental.", precio: "$179 Mx", imagen: "imagenes/pinolito.jpg", url: "detalle7.html" },
-    { nombre: "Limpiador líquido Fabuloso aroma lavanda 1L", descripcion: "Su fórmula de dosificación permite a los usuarios mezclar el producto de mejor manera.", precio: "$25 Mx", imagen: "imagenes/Fabuloso.jpg", url: "detalle8.html" },
+    { nombre: "Limpiador líquido Fabuloso aroma lavanda 1L", descripcion: "Su fórmula de dosificación permite a los usuarios mezclar el producto de mejor manera.", precio: "$25 Mx", imagen: "imagenes/8.png", url: "detalle8.html" },
     { nombre: "Cloralex Toallas Desinfectantes Húmedas, 48 Piezas", descripcion: "Su nuevo material biodegradable ayuda a reducir el impacto ambiental.", precio: "$60 Mx", imagen: "imagenes/10.jpg", url: "detalle9.html" },
     { nombre: "Aromatizante ambiental Glade campos de lavanda en aerosol 270 ml", descripcion: "Fragancias naturales que ofrecen una opción amigable con el medio ambiente.", precio: "$45 Mx", imagen: "imagenes/glade.webp", url: "detalle10.html" }
   ];

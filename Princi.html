@@ -19,8 +19,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Carrusel -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   <!-- Enlace a la fuente Minecraftia -->
   <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
   <link rel="stylesheet" href="Princi.css">
@@ -68,12 +67,26 @@
   </div>
 
   <!-- Contenido -->
-  <h2 id="producte" class="Subtitle">---------------Productos------------------</h2>
-  <div class="contenedor-tarjetas row" id="productContainer">
-    <!-- Más tarjetas de producto aquí -->
+  <h2 id="producte" class="Subtitle">---------------Productos---------------</h2>
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col">
+        <!-- Barra de búsqueda -->
+          <form id="searchForm" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto..." aria-label="Search" id="searchInput">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchButton">Buscar</button>
+          </form>
+<!-- Fin de la barra de busqueda -->
+        <button id="sortAZButton" class="btn btn-primary mb-4">Ordenar por Nombre (A-Z)</button>
+        <button id="sortZAButton" class="btn btn-primary mb-4">Ordenar por Nombre (Z-A)</button>
+        <button id="sortPrecioButton" class="btn btn-primary mb-4">Ordenar por Precio (Mayor a Menor)</button>
+        <button id="sortPrecioMenorButton" class="btn btn-primary mb-4">Ordenar por Precio (Menor a Mayor)</button>
+      </div>
+    </div>
+    <div class="contenedor-tarjetas row" id="productContainer">
+      <!-- Las tarjetas de productos se renderizarán aquí -->
+    </div>
   </div>
-</div>
-
 
   <!-- Panel de administrador -->
   <div id="adminPanel">
@@ -130,6 +143,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script src="Principal.js"></script>
   <script src="Productos.js"></script>
+  <script>
+    function mostrarAlerta() {
+      alert('Recuerda leer nuestros términos y condiciones');
+    }
+    
+  </script>
 </body>
-
 </html>

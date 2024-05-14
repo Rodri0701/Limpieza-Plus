@@ -4,6 +4,22 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4WMSS4Y8K"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+    
+        gtag('config', 'G-V4WMSS4Y8K');
+      </script>
+<!-- Aqui iniciamos el boton de paypal NO MODIFICABLE -->
+<script
+src="https://www.paypal.com/sdk/js?client-id=AbaYO3JQ8ZeiaV3AhCQbMHCvKuRnAbo-J3syUPwFrGgk2QLbQq-cW6C3FrjqyjsBLj7uxp26ngUYSnvP&buyer-country=MX&currency=MXN&components=buttons&enable-funding=venmo"
+data-sdk-integration-source="developer-studio"
+></script>
+
+<!-- Aqui termina el inicio del boton -->
 <style>
     .navbar {
       width: 100% ;
@@ -118,9 +134,13 @@
         <p>Aerosol listo para usarse. Mantenga uno cerca para neutralizar olores.</p>
         <p>Poderoso limpiador desinfectante para inodoros</p>
         <p>10 veces mejor removiendo sarro que productos a base de cloro.</p>
-        <p class="precio">$80 pesos</p>
+        <p class="precio">$ 110 Mx</p>
         <button class="boton">Añadir a favoritos</button>
         <button class="boton">Añadir a carrito</button>
+         <!-- Div para paypal -->
+    <div id="paypal-button"></div>
+    <p id="result-message"></p>
+    <!-- Fin del div -->
       </div>
     </div>
     
@@ -128,5 +148,26 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Aui inicia la logica de paypal y de su boton: -->
+<script>
+  paypal.Buttons({
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      currency_code: 'MXN', // Cambiar a pesos mexicanos
+                      value: '110' // Monto del pago
+                  }
+              }]
+          });
+      },
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              alert('Pago completado por ' + details.payer.name.given_name + '!');
+          });
+      }
+  }).render('#paypal-button');
+</script>
+<!-- Aqui termina la logica de paypal y de su boton: -->
 </body>
 </html>

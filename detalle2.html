@@ -13,6 +13,13 @@
 
     gtag('config', 'G-V4WMSS4Y8K');
   </script>
+  <!-- Aqui iniciamos el boton de paypal NO MODIFICABLE -->
+  <script
+  src="https://www.paypal.com/sdk/js?client-id=AbaYO3JQ8ZeiaV3AhCQbMHCvKuRnAbo-J3syUPwFrGgk2QLbQq-cW6C3FrjqyjsBLj7uxp26ngUYSnvP&buyer-country=MX&currency=MXN&components=buttons&enable-funding=venmo"
+  data-sdk-integration-source="developer-studio"
+></script>
+
+  <!-- Aqui termina el inicio del boton -->
 <style>
     .navbar {
       width: 100% ;
@@ -125,9 +132,13 @@
       <div class="contenido">
         <h3>Lysol</h3>
         <p>Siente la frescura con Lysol® Desinfectante Multiusos, una forma efectiva y fácil de limpiar y desinfectar tu hogar. Lysol® Desinfectante Multiusos puede ayudarte a proteger a tu familia eliminando el 99.9%* de gérmenes que pueden encontrarse en las superficies de tu hogar. *Efectiva desinfección que elimina aún diluido gérmenes como: Staphylococcus aureus, Escherichia coli, Candida albicans, Pseudomonas aeruginosa, Influenza A (H1N1), Rotavirus cepa WA, Virus respiratorio sincitial, Virus del Herpes simple tipo I. Utiliza este producto y obten como resultado una limpieza profunda con un fresco aroma a cítricos.</p>
-        <p class="precio">$280 pesos</p>
+        <p class="precio">$ 90 Mx</p>
         <button class="boton">Añadir a favoritos</button>
         <button class="boton">Añadir a carrito</button>
+         <!-- Div para paypal -->
+    <div id="paypal-button"></div>
+    <p id="result-message"></p>
+    <!-- Fin del div -->
       </div>
     </div>
     
@@ -135,5 +146,26 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Aui inicia la logica de paypal y de su boton: -->
+<script>
+  paypal.Buttons({
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      currency_code: 'MXN', // Cambiar a pesos mexicanos
+                      value: '90' // Monto del pago
+                  }
+              }]
+          });
+      },
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              alert('Pago completado por ' + details.payer.name.given_name + '!');
+          });
+      }
+  }).render('#paypal-button');
+</script>
+<!-- Aqui termina la logica de paypal y de su boton: -->
 </body>
 </html>

@@ -4,7 +4,7 @@ var productos = [
     { nombre: "Lysol", descripcion: "Este producto cuenta con envase recargable para contribuir al medio ambiente.", precio: "$90 Mx", imagen: "imagenes/2.png", url: "detalle2.html" },
     { nombre: "Windex", descripcion: "¡Con Windex añade brillo a tu vida! Es nuestra mejor solución para iluminar y dar brillo a su hogar.", precio: "$60 Mx", imagen: "imagenes/3.jpeg", url: "detalle3.html" },
     { nombre: "Lysol Pro|", descripcion: "Contiene una solución que se disuelve con agua, ofreciendo una solución más compacta y fácil de almacenar.", precio: "$80 Mx", imagen: "imagenes/4.jpg", url: "detalle4.html" },
-    { nombre: "Harpic Power Ultra", descripcion: "Su fórmula biodegradable permite desatascar las tuberías de manera efectiva y sin dañarlas.", precio: "$70 Mx", imagen: "imagenes/5.png", url: "detalle5.html" },
+    { nombre: "Harpic Power Ultra", descripcion: "Su fórmula biodegradable permite desatascar las tuberías de manera efectiva y sin dañarlas.", precio: "$70 Mx", imagen: "imagenes/5.png", url: "detalle5.h  tml" },
     { nombre: "Vanish Quitamanchas en Gel Multiusos para Ropa de Color 3.6 L", descripcion: "Funciona a temperatura más baja ayudando a ahorrar energía y proteger los tejidos delicados.", precio: "$179 Mx", imagen: "imagenes/6.png", url: "detalle6.html" },
     { nombre: "Pinol El Original limpiador multiusos desinfectante pino 3.7 lt", descripcion: "Fórmula biodegradable que contribuye al impacto ambiental.", precio: "$110 Mx", imagen: "imagenes/7.png", url: "detalle7.html" },
     { nombre: "Limpiador líquido Fabuloso aroma lavanda 1L", descripcion: "Su fórmula de dosificación permite a los usuarios mezclar el producto de mejor manera.", precio: "$25 Mx", imagen: "imagenes/8.png", url: "detalle8.html" },

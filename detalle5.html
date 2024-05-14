@@ -51,22 +51,28 @@ data-sdk-integration-source="developer-studio"
     }
     /* Estilos para la tarjeta de detalle */
     .tarjeta-detalle {
-      width: 80%;
-      margin: 50px auto;
-      display: flex;
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 1.5);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .tarjeta-detalle img {
-      width: 50%;
-      object-fit: cover;
-    }
-    .contenido {
-      padding: 25px;
-      width: 50%;
-      background-color: #babbbc;
-    }
+  width: 80%;
+  text-align: center;
+  margin: 50px auto;
+  display: flex;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 1.5);
+  border-radius: 10px;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tarjeta-detalle img {
+  max-width: 100%; /* Modificado */
+  height: auto; 
+  object-fit: cover;
+}
+
+
+  .contenido {
+    padding: 25px;
+    background-color: #babbbc;
+  }
     .contenido h2 {
   text-align: center;
   font-size: 35px;
@@ -128,12 +134,10 @@ data-sdk-integration-source="developer-studio"
     </nav>
 
     <div class="tarjeta-detalle">
-      <img src="imagenes/5.jpg" alt="Producto Grande">
+      <img src="imagenes/5.png" alt="Producto Grande">
       <div class="contenido">
         <h2>Acerca de este titulo</h2>
-        <p>Aerosol listo para usarse. Mantenga uno cerca para neutralizar olores.</p>
-        <p>Poderoso limpiador desinfectante para inodoros</p>
-        <p>10 veces mejor removiendo sarro que productos a base de cloro.</p>
+        <p>Harpic® power ultra original es un poderoso limpiador desinfectante para inodoros que, con su avanzada fórmula, remueve sarro, mata gérmenes y deja su inodoro limpio y brillante.</p>
         <p class="precio">$ 110 Mx</p>
         <button class="boton">Añadir a favoritos</button>
         <button class="boton">Añadir a carrito</button>

@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="Princi.css">
 </head>
 
-<body onload="mostrarAlerta()">
+<body onload="verificarUsuario()">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
@@ -41,8 +41,8 @@
         <li class="nav-item custom-item">
           <a class="nav-link custom-link" href="#producte">Productos</a>
         </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="Login.html">Inicio Sesion</a>
+        <li class="nav-item custom-item" id="loginNavItem">
+          <a class="nav-link custom-link" href="Login.html">Iniciar Sesión</a>
         </li>
         <li class="nav-item custom-item">
           <a class="nav-link custom-link" href="#Foot">Contacto</a>
@@ -166,7 +166,20 @@
     function mostrarAlerta() {
       alert('Recuerda leer nuestros términos y condiciones');
     }
-    
+
+    function verificarUsuario() {
+      const usuarioId = localStorage.getItem('usuarioId');
+      const loginNavItem = document.getElementById('loginNavItem');
+
+      if (usuarioId) {
+        // Si hay un usuario autenticado, cambia el texto y el enlace del botón de inicio de sesión a "Mi Cuenta"
+        loginNavItem.innerHTML = '<a class="nav-link custom-link" href="perfil.html">Mi Cuenta</a>';
+      } else {
+        // Si no hay un usuario autenticado, deja el texto y el enlace del botón de inicio de sesión como "Iniciar Sesión"
+        loginNavItem.innerHTML = '<a class="nav-link custom-link" href="Login.html">Iniciar Sesión</a>';
+      }
+    }
   </script>
 </body>
+
 </html>

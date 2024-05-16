@@ -1,0 +1,102 @@
+[
+  {
+      "ID": 1,
+      "Categoria": "Detergentes",
+      "Nombre": "Ariel",
+      "Descripcion": "Contiene una fórmula que te permite usar menos producto por carga de lavado.",
+      "Precio": 5.99,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/1.png"
+  },
+  {
+      "ID": 2,
+      "Categoria": "Limpiadores",
+      "Nombre": "Lysol",
+      "Descripcion": "Este producto cuenta con envase recargable para contribuir al medio ambiente.",
+      "Precio": 7.99,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/2.png",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/1.png"
+  },
+  {
+      "ID": 3,
+      "Categoria": "Limpiadores",
+      "Nombre": "Bel en espray",
+      "Descripcion": "Su fórmula concentrada no deja rayas ni residuos permitiéndote una limpieza más profunda.",
+      "Precio": 4.99,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/3.png",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/3.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/3.png"
+  },
+  {
+      "ID": 4,
+      "Categoria": "Limpiadores",
+      "Nombre": "Lysol",
+      "Descripcion": "Contiene una solución que se disuelve con agua, ofreciendo una solución más compacta y fácil de almacenar.",
+      "Precio": 6.99,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/4.png",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/1.png"
+  },
+  {
+      "ID": 5,
+      "Categoria": "Cuidado del hogar",
+      "Nombre": "Mr. Músculo",
+      "Descripcion": "Su fórmula biodegradable permite desatascar las tuberías de manera efectiva y sin dañarlas.",
+      "Precio": 3.99,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/5.jpg",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/1.png"
+  },
+  {
+      "ID": 6,
+      "Categoria": "Cuidado del hogar",
+      "Nombre": "Vanish",
+      "Descripcion": "Funciona a temperatura más baja ayudando a ahorrar energía y proteger los tejidos delicados.",
+      "Precio": 8.99,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/6.png",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/1.png"
+  },
+  {
+      "ID": 7,
+      "Categoria": "Limpiadores",
+      "Nombre": "Febreze",
+      "Descripcion": "Fragancias naturales que ofrecen una opción amigable con el medio ambiente.",
+      "Precio": 4.49,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/7.png",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/1.png"
+  },
+  {
+      "ID": 8,
+      "Categoria": "Limpiadores",
+      "Nombre": "Pinol",
+      "Descripcion": "Fórmula biodegradable que contribuye al impacto ambiental.",
+      "Precio": 2.99,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/8.png",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/1.png"
+  },
+  {
+      "ID": 9,
+      "Categoria": "Detergentes",
+      "Nombre": "Fabuloso",
+      "Descripcion": "Su fórmula de dosificación permite a los usuarios mezclar el producto de mejor manera.",
+      "Precio": 6.49,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/9.png",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/1.png"
+  },
+  {
+      "ID": 10,
+      "Categoria": "Higiene personal",
+      "Nombre": "Cloralex",
+      "Descripcion": "Su nuevo material biodegradable ayuda a reducir el impacto ambiental.",
+      "Precio": 4.99,
+      "Imagen1": "/TiendaDeLimpieza/public/imagenes/10.jpg",
+      "Imagen2": "/TiendaDeLimpieza/public/imagenes/1.png",
+      "Imagen3": "/TiendaDeLimpieza/public/imagenes/1.png"
+  }
+]

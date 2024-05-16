@@ -14,6 +14,36 @@
     gtag('js', new Date());
 
     gtag('config', 'G-V4WMSS4Y8K');
+
+    // Función para validar el formulario de inicio de sesión
+    function validarLogin(event) {
+      event.preventDefault(); // Evita que se envíe el formulario automáticamente
+
+      // Obtenemos los valores de usuario y contraseña ingresados por el usuario
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Cargamos el archivo JSON externo
+      fetch('data/usuarios.json')
+        .then(response => response.json())
+        .then(data => {
+          // Buscamos si el usuario existe en la sección 'customer' del JSON
+          const customer = data.customer.find(user => user.usuario === username);
+
+          if (customer) {
+            // Si el usuario existe, comparamos la contraseña
+            if (customer.contraseña === password) {
+              alert('¡Inicio de sesión exitoso!');
+              // Aquí podrías redirigir al usuario a otra página o realizar otras acciones necesarias
+            } else {
+              alert('Contraseña incorrecta');
+            }
+          } else {
+            alert('Usuario no encontrado');
+          }
+        })
+        .catch(error => console.error('Error al cargar el archivo JSON:', error));
+    }
   </script>
 </head>
 <body>
@@ -21,20 +51,18 @@
     <img src="https://rodri0701.github.io/Limpieza-Plus/imagenes/back.png" alt="Icono" style="width: 40px; height: 40px;">
   </a>
   
-      
-      </a>
-        <div class="container">
+  <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="" class="sign-in-form">
+        <form action="" class="sign-in-form" onsubmit="validarLogin(event)">
           <h2 class="title">Inicia sesión</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" id="username" placeholder="Username" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" id="password" placeholder="Password" />
           </div>
           <input type="submit" value="Login" class="btn solid" />
 

@@ -47,6 +47,71 @@
         })
         .catch(error => console.error('Error al cargar el archivo JSON:', error));
     }
+
+    // Función para validar el formulario de registro
+    function registrarUsuario(event) {
+      event.preventDefault(); // Evita que se envíe el formulario automáticamente
+
+      // Obtenemos los valores del formulario de registro
+      const username = document.getElementById('regUsername').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPassword').value.trim();
+
+      // Validar que todos los campos estén completos
+      if (username && email && password) {
+        // Cargar el archivo JSON de usuarios
+        fetch('data/usuarios.json')
+          .then(response => response.json())
+          .then(data => {
+            // Verificar si el usuario o el correo electrónico ya existen
+            const usuarioExistente = data.customer.find(user => user.usuario === username);
+            const correoExistente = data.customer.find(user => user.correo_electronico === email);
+
+            if (usuarioExistente) {
+              // Mostrar mensaje de error si el usuario ya existe
+              alert('Ese usuario ya está registrado.');
+            } else if (correoExistente) {
+              // Mostrar mensaje de error si el correo electrónico ya está registrado
+              alert('Ese correo electrónico ya está registrado.');
+            } else {
+              // Si el usuario y el correo electrónico no existen, generar un nuevo ID
+              const nuevoId = data.customer.length > 0 ? data.customer[data.customer.length - 1].id + 1 : 1;
+              
+              // Crear el nuevo usuario
+              const nuevoUsuario = {
+                id: nuevoId,
+                nombre: "",
+                usuario: username,
+                correo_electronico: email,
+                contraseña: password,
+                calle: "",
+                fraccionamiento: "",
+                codigo_postal: "",
+                metodo_pago: ""
+              };
+
+              // Guardar el nuevo usuario en el JSON
+              data.customer.push(nuevoUsuario);
+
+              // Guardar el JSON actualizado
+              localStorage.setItem('usuarios', JSON.stringify(data));
+
+              // Guardar el ID del nuevo usuario en el localStorage
+              localStorage.setItem('usuarioId', nuevoId);
+
+              // Redireccionar al usuario al perfil
+              window.location.href = 'perfil.html';
+            }
+          })
+          .catch(error => {
+            console.error('Error al cargar el archivo JSON:', error);
+            alert('Error al registrar el usuario. Por favor, inténtalo de nuevo.');
+          });
+      } else {
+        // Mostrar mensaje de error si algún campo está vacío
+        alert('Por favor, completa todos los campos.');
+      }
+    }
   </script>
 </head>
 <body>
@@ -86,19 +151,19 @@
           </div>
         </form>
 
-        <form action="" class="sign-up-form">
+        <form action="" class="sign-up-form" onsubmit="registrarUsuario(event)">
           <h2 class="title">Registro</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" id="regUsername" placeholder="Username" />
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
+            <input type="email" id="regEmail" placeholder="Email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" id="regPassword" placeholder="Password" />
           </div>
           <input type="submit" value="Sign Up" class="btn solid" />
 

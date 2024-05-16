@@ -23,9 +23,16 @@
   <!-- Enlace a la fuente Minecraftia -->
   <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
   <link rel="stylesheet" href="Princi.css">
+  <!-- Initialize the JS-SDK -->
+
+ <script
+ src="https://www.paypal.com/sdk/js?client-id=AbaYO3JQ8ZeiaV3AhCQbMHCvKuRnAbo-J3syUPwFrGgk2QLbQq-cW6C3FrjqyjsBLj7uxp26ngUYSnvP&buyer-country=MX&currency=MXN&components=buttons&enable-funding=venmo"
+ data-sdk-integration-source="developer-studio"
+></script>
+<!-- Fin del JS-SDK -->
 </head>
 
-<body onload="mostrarAlerta()">
+<body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
@@ -50,55 +57,21 @@
         <li class="nav-item custom-item">
           <a class="nav-link custom-link" href="#Adminpanel" onclick="toggleAdminPanel()">Administrador</a>
         </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="carrito.html">Carrito</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="favoritos.html">Lista de favoritos</a>
-        </li>
       </ul>
     </div>
   </nav>
 
-  <!-- Carrusel de imágenes -->
-  <div class="row justify-content-center carousel-container" style="margin-top: 0;">
-    <div class="col-md-12"> <!-- Cambiado de col-md-8 a col-md-12 para ocupar todo el ancho -->
-      <!-- Carrusel de imágenes -->
-      <div class="owl-carousel owl-theme">
-        <div class="item"><a href="detalle.html"><img src="imagenes/Fabuloso.png" alt="Descripción de la imagen 1" title="DP1"></a></div>
-        <div class="item"><a href="detalle2.html"><img src="imagenes/Lysol.png" alt="Descripción de la imagen 2" title="DP2"></a></div>
-        <div class="item"><a href="detalle3.html"><img src="imagenes/foca.png" alt="Descripción de la imagen 3" title="DP3"></a></div>
-      </div>
-    </div>
+  <h1>Carrito de Compras</h1>
+  
+  <div id="carritoContainer">
+    <!-- Aquí se mostrarán los productos del carrito -->
   </div>
 
-  <!-- Contenido -->
-  <h2 id="producte" class="Subtitle">---------------Productos---------------</h2>
-  <div class="container">
-    <div class="row mb-4">
-      <div class="col">
-        <!-- Barra de búsqueda -->
-          <form id="searchForm" class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto..." aria-label="Search" id="searchInput">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchButton">Buscar</button>
-          </form>
-<!-- Fin de la barra de busqueda -->
-        <button id="sortAZButton" class="btn btn-primary mb-4">Ordenar por Nombre (A-Z)</button>
-        <button id="sortZAButton" class="btn btn-primary mb-4">Ordenar por Nombre (Z-A)</button>
-        <button id="sortPrecioButton" class="btn btn-primary mb-4">Ordenar por Precio (Mayor a Menor)</button>
-        <button id="sortPrecioMenorButton" class="btn btn-primary mb-4">Ordenar por Precio (Menor a Mayor)</button>
-      </div>
-    </div>
-    <div class="contenedor-tarjetas row" id="productContainer">
-      <!-- Las tarjetas de productos se renderizarán aquí -->
-    </div>
-  </div>
+  <p id="total"></p> <!-- Aquí se mostrará el total -->
 
-  <!-- Panel de administrador -->
-  <div id="adminPanel">
-    <!-- Formulario de administrador -->
-  </div>
-
+  <!-- Aqui aparacera el boton de Paypal -->
+  <div id="paypal-button"></div>
+  <!-- Fin del boton -->
 
   <!-- Footer -->
   <footer id="Foot" class="footer">
@@ -146,15 +119,61 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Carrusel -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <script src="Principal.js"></script>
-  <script src="Productos.js"></script>
   <script>
-    function mostrarAlerta() {
-      alert('Recuerda leer nuestros términos y condiciones');
+    // Recuperar los productos del localStorage
+    var carrito = JSON.parse(localStorage.getItem('carrito'));
+
+    // Verificar si hay productos en el carrito
+    if (carrito && carrito.length > 0) {
+      var carritoContainer = document.getElementById('carritoContainer');
+      var total = 0; // Variable para almacenar el total
+
+      // Crear elementos para cada producto en el carrito y agregarlos al contenedor
+      carrito.forEach(function(producto) {
+        var productoElement = document.createElement('div');
+        productoElement.innerHTML = `
+          <h2>${producto.nombre}</h2>
+          <p>${producto.descripcion}</p>
+          <img src="${producto.imagen}" alt="${producto.nombre}">
+          <p>Precio: ${producto.precio}</p>
+          <hr>
+        `;
+        carritoContainer.appendChild(productoElement);
+
+        // Sumar el precio del producto al total
+        total += parseFloat(producto.precio.replace('$', '').replace(' Mx', ''));
+      });
+
+      // Mostrar el total en la página
+      var totalElement = document.getElementById('total');
+      totalElement.textContent = 'Total: $' + total.toFixed(2) + ' Mx';
+    } else {
+      // Si no hay productos en el carrito, mostrar un mensaje indicando que está vacío
+      var carritoContainer = document.getElementById('carritoContainer');
+      carritoContainer.innerHTML = '<p>El carrito está vacío</p>';
     }
-    
+  </script>
+  <script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        currency_code: 'MXN', // Cambiar a pesos mexicanos
+                        value: total.toFixed(2).toString() // Monto del pago
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Pago completado por ' + details.payer.name.given_name + '!');
+            });
+        }
+    }).render('#paypal-button');
+</script>
+  <script>
+    localStorage.clear();
   </script>
 </body>
 </html>

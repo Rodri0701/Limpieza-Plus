@@ -20,16 +20,5 @@ $(document).ready(function () {
     });
   });
   
-  function mostrarAlerta() {
-    // Mostrar una confirmación al recargar la página
-    var resultado = confirm("¿Deseas leer nuestra politica de privacidad?");
-  
-    // Verificar la respuesta del usuario
-    if (resultado) {
-      // Si el usuario hace clic en "Aceptar", redireccionar a la página de términos y condiciones
-      window.location.href = "Politica.html";
-    } else {
-      // Si el usuario hace clic en "Cancelar" o cierra la ventana emergente, no hacer nada
-    }
-  }
+
   

@@ -36,16 +36,55 @@ function renderizarProductos() {
       var button = document.createElement('button');
       button.classList.add('boton');
       button.textContent = "Ver detalles";
+
+      var cartButton = document.createElement('button');
+      cartButton.classList.add('boton', 'boton-carrito');
+      cartButton.textContent = "Agregar al carrito";
+
+      // Agregar evento click al botón "Agregar al carrito"
+      cartButton.addEventListener('click', function() {
+        agregarAlCarrito(producto);
+      });
+
+      var favoritesButton = document.createElement('button');
+      favoritesButton.classList.add('boton', 'boton-favoritos');
+      favoritesButton.textContent = "Agregar a favoritos";
+
+      // Agregar evento click al botón "Agregar a favoritos"
+      favoritesButton.addEventListener('click', function() {
+        agregarAFavoritos(producto);
+      });
+
       link.appendChild(button);
       content.appendChild(name);
       content.appendChild(description);
       content.appendChild(price);
       content.appendChild(link);
+      content.appendChild(cartButton); // Agregar el botón "Agregar al carrito"
+      content.appendChild(favoritesButton); // Agregar el botón "Agregar a favoritos"
       card.appendChild(img);
       card.appendChild(content);
       productContainer.appendChild(card);
   });
 }
+
+// Función para agregar un producto al carrito
+function agregarAlCarrito(producto) {
+  var productosEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  productosEnCarrito.push(producto);
+  localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
+  alert("Producto agregado al carrito");
+}
+
+// Función para agregar un producto a la lista de favoritos
+function agregarAFavoritos(producto) {
+  var productosEnFavoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  productosEnFavoritos.push(producto);
+  localStorage.setItem('favoritos', JSON.stringify(productosEnFavoritos));
+  alert("Producto agregado a favoritos");
+}
+
+
 /* Inicio de la funcion para ordenar */
 function ordenarAZ() {
   productos.sort((a, b) => a.nombre.localeCompare(b.nombre)); /* Comparamos alfaberticamente para agregar cual antes y despues */
@@ -90,6 +129,7 @@ function ordenarPrecioMenorMayor() {
 /* Funcion para recargar la pagina y conservar los cambios */
 window.onload = function() {
   mostrarAlerta();
+  localStorage.clear();
   renderizarProductos(); /* Se renderiza */
   document.getElementById('sortAZButton').addEventListener('click', ordenarAZ);  /* Se obtiene la funcion del boton y se manda a llamar su funcion */
   document.getElementById('sortZAButton').addEventListener('click', ordenarZA); /* Se obtiene la funcion del boton y se manda a llamar su funcion */

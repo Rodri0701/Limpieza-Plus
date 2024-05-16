@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="Princi.css">
 </head>
 
-<body onload="mostrarAlerta()">
+<body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
@@ -50,55 +50,17 @@
         <li class="nav-item custom-item">
           <a class="nav-link custom-link" href="#Adminpanel" onclick="toggleAdminPanel()">Administrador</a>
         </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="carrito.html">Carrito</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="favoritos.html">Lista de favoritos</a>
-        </li>
       </ul>
     </div>
   </nav>
 
-  <!-- Carrusel de imágenes -->
-  <div class="row justify-content-center carousel-container" style="margin-top: 0;">
-    <div class="col-md-12"> <!-- Cambiado de col-md-8 a col-md-12 para ocupar todo el ancho -->
-      <!-- Carrusel de imágenes -->
-      <div class="owl-carousel owl-theme">
-        <div class="item"><a href="detalle.html"><img src="imagenes/Fabuloso.png" alt="Descripción de la imagen 1" title="DP1"></a></div>
-        <div class="item"><a href="detalle2.html"><img src="imagenes/Lysol.png" alt="Descripción de la imagen 2" title="DP2"></a></div>
-        <div class="item"><a href="detalle3.html"><img src="imagenes/foca.png" alt="Descripción de la imagen 3" title="DP3"></a></div>
-      </div>
-    </div>
+  <h1>Favoritos</h1>
+  
+  <div id="favoritosContainer" class="container">
+    <!-- Aquí se mostrarán los productos favoritos -->
   </div>
 
-  <!-- Contenido -->
-  <h2 id="producte" class="Subtitle">---------------Productos---------------</h2>
-  <div class="container">
-    <div class="row mb-4">
-      <div class="col">
-        <!-- Barra de búsqueda -->
-          <form id="searchForm" class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto..." aria-label="Search" id="searchInput">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchButton">Buscar</button>
-          </form>
-<!-- Fin de la barra de busqueda -->
-        <button id="sortAZButton" class="btn btn-primary mb-4">Ordenar por Nombre (A-Z)</button>
-        <button id="sortZAButton" class="btn btn-primary mb-4">Ordenar por Nombre (Z-A)</button>
-        <button id="sortPrecioButton" class="btn btn-primary mb-4">Ordenar por Precio (Mayor a Menor)</button>
-        <button id="sortPrecioMenorButton" class="btn btn-primary mb-4">Ordenar por Precio (Menor a Mayor)</button>
-      </div>
-    </div>
-    <div class="contenedor-tarjetas row" id="productContainer">
-      <!-- Las tarjetas de productos se renderizarán aquí -->
-    </div>
-  </div>
-
-  <!-- Panel de administrador -->
-  <div id="adminPanel">
-    <!-- Formulario de administrador -->
-  </div>
-
+  
 
   <!-- Footer -->
   <footer id="Foot" class="footer">
@@ -146,15 +108,58 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Carrusel -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <script src="Principal.js"></script>
-  <script src="Productos.js"></script>
   <script>
-    function mostrarAlerta() {
-      alert('Recuerda leer nuestros términos y condiciones');
+    // Función para obtener y mostrar los productos favoritos
+    function mostrarFavoritos() {
+      // Obtener los productos favoritos del almacenamiento local
+      var favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+
+      // Seleccionar el contenedor donde se mostrarán los productos favoritos
+      var favoritosContainer = document.getElementById('favoritosContainer');
+
+      // Recorrer la lista de productos favoritos y renderizar cada uno
+      favoritos.forEach(producto => {
+        // Crear un elemento div para mostrar cada producto favorito
+        var productoDiv = document.createElement('div');
+        productoDiv.classList.add('producto-favorito');
+
+        // Crear elementos HTML para mostrar la información del producto (nombre, descripción, imagen, etc.)
+        // Aquí puedes personalizar cómo deseas mostrar la información de cada producto
+        var nombre = document.createElement('h2');
+        nombre.textContent = producto.nombre;
+
+        var descripcion = document.createElement('p');
+        descripcion.textContent = producto.descripcion;
+
+        var imagen = document.createElement('img');
+        imagen.src = producto.imagen;
+        imagen.alt = producto.nombre;
+
+        // Agregar los elementos al div del producto
+        productoDiv.appendChild(nombre);
+        productoDiv.appendChild(descripcion);
+        productoDiv.appendChild(imagen);
+
+        // Agregar el div del producto al contenedor de favoritos
+        favoritosContainer.appendChild(productoDiv);
+      });
+
+      // Si no hay productos favoritos, mostrar un mensaje indicando que no hay favoritos
+      if (favoritos.length === 0) {
+        var mensaje = document.createElement('p');
+        mensaje.textContent = 'No hay productos en la lista de favoritos.';
+        favoritosContainer.appendChild(mensaje);
+      }
     }
-    
+
+    // Llamar a la función para mostrar los productos favoritos cuando la página se carga
+    window.onload = function() {
+      mostrarFavoritos();
+    };
   </script>
+
+  
+
+  
 </body>
 </html>

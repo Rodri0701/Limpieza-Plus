@@ -200,3 +200,51 @@ function buscarProducto() {
 // Asignar la función buscarProducto al evento click del botón de búsqueda
 document.getElementById('searchButton').addEventListener('click', buscarProducto);
 
+ /* *----------------------*-------------- */
+
+ // Función para cargar productos desde localStorage
+function loadProductsFromLocalStorage() {
+  const storedProducts = localStorage.getItem('products');
+  if (storedProducts) {
+    products = JSON.parse(storedProducts);
+    localStorage.removeItem('products'); // Eliminar los productos del localStorage
+  }
+}
+
+// Función para cargar productos en la lista de productos
+function loadProducts() {
+  loadProductsFromLocalStorage();
+  const productList = document.getElementById("productList");
+  productList.innerHTML = "";
+  products.forEach(product => {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <div class="product-details">
+        <h3>${product.name}</h3>
+        <p>Precio: $${product.price}</p>
+      </div>
+      <div class="product-actions">
+        <button onclick="editProduct(${product.id})">Editar</button>
+        <button onclick="deleteProduct(${product.id})">Eliminar</button>
+      </div>
+    `;
+    productList.appendChild(productCard);
+  });
+}
+
+// Evento de carga de la página
+document.addEventListener("DOMContentLoaded", () => {
+  loadProducts();
+  document.getElementById("btnAdd").addEventListener("click", openModal);
+  document.querySelector(".close").addEventListener("click", closeModal);
+  document.getElementById("productForm").addEventListener("submit", function(event) {
+    const productId = document.getElementById("productId").value;
+    if (productId) {
+      updateProduct(event);
+    } else {
+      addProduct(event);
+    }
+  });
+});

@@ -16,13 +16,28 @@
     <h2>Login Administrador</h2>
   </div>
   <div class="login-body">
-    <form action="#">
-      <input type="text" placeholder="Usuario" required>
-      <input type="password" placeholder="Contraseña" required>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
       <input type="submit" value="Iniciar Sesión">
     </form>
   </div>
 </div>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir el envío del formulario
+    
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    
+    if (username === 'admin' && password === '123456789') {
+      window.location.href = 'Adminpanel.html'; // Redirigir a otra página
+    } else {
+      alert('Usuario o contraseña incorrectos'); // Mostrar alerta de error
+    }
+  });
+</script>
 
 </body>
 </html>

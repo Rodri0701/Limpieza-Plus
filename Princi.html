@@ -22,45 +22,70 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   <!-- Enlace a la fuente Minecraftia -->
-  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="Princi.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body onload="inicializarUsuarios(); mostrarAlerta()">
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-    <ul class="navbar-nav custom-nav">
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="Princi.html">Inicio</a>
-      </li>
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="#producte">Productos</a>
-      </li>
-      <li class="nav-item custom-item" id="loginLink">
-        <a class="nav-link custom-link" href="Login.html">Iniciar Sesión</a>
-      </li>
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="#Foot">Contacto</a>
-      </li>
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
-      </li>
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="carrito.html"><i class="fas fa-shopping-cart"></i></a>
-      </li>
-      <li class="nav-item custom-item" id="userLink" style="display: none;">
-        <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
-      </li>
-    </ul>
+  <div class="container_hed navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
+    <div>
+  <div class="col">
+    <!-- Barra de búsqueda -->
+      <form id="searchForm" class="form-inline my-2 my-lg-0" style="padding: 10px;">
+        <input class="search-input form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search" id="searchInput">
+        <button class=" btn  my-2 my-sm-0" type="button" id="searchButton" style="background-color: rgb(207, 207, 207); width: 60px;"><i class="fas fa-search icon"></i></button>
+        <a class="custom-link" href="carrito.html"><i class="fas fa-shopping-cart fa-2x" style="margin-left: 50px; color: black;"></i></a>
+      </form>
   </div>
-</nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" justify-content-end" id="navbarNav" style="background-color: rgb(11, 158, 243); width: 100%; border-radius: 5px;">
+      <ul class="navbar-nav custom-nav">
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="Princi.html">Inicio</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#producte">Productos</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="Login.html">Inicio Sesion</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#Foot">Contacto</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="favoritos.html">Lista de favoritos</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+</div>
+  
+  <!-- Carrusel de imágenes -->
+  <div class="row justify-content-center carousel-container" style="margin-top: 0;">
+    <div class="col-md-12"> <!-- Cambiado de col-md-8 a col-md-12 para ocupar todo el ancho -->
+      <!-- Carrusel de imágenes -->
+      <div class="owl-carousel owl-theme">
+        <div class="item"><a href="detalle.html"><img src="imagenes/Fabuloso.png" alt="Descripción de la imagen 1" title="DP1"></a></div>
+        <div class="item"><a href="detalle2.html"><img src="imagenes/Lysol.png" alt="Descripción de la imagen 2" title="DP2"></a></div>
+        <div class="item"><a href="detalle3.html"><img src="imagenes/foca.png" alt="Descripción de la imagen 3" title="DP3"></a></div>
+      </div>
+    </div>
+  </div>
 
   <!-- Carrusel de imágenes -->
   <div class="row justify-content-center carousel-container" style="margin-top: 0;">
@@ -82,12 +107,6 @@
   <div class="container">
     <div class="row mb-4">
       <div class="col">
-        <!-- Barra de búsqueda -->
-        <form id="searchForm" class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto..." aria-label="Search"
-            id="searchInput">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchButton">Buscar</button>
-        </form>
         <!-- Fin de la barra de busqueda -->
         <button id="sortAZButton" class="btn btn-primary mb-4">Ordenar por Nombre (A-Z)</button>
         <button id="sortZAButton" class="btn btn-primary mb-4">Ordenar por Nombre (Z-A)</button>

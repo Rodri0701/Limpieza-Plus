@@ -129,7 +129,6 @@ function ordenarPrecioMenorMayor() {
 /* Funcion para recargar la pagina y conservar los cambios */
 window.onload = function() {
   mostrarAlerta();
-  localStorage.clear();
   renderizarProductos(); /* Se renderiza */
   document.getElementById('sortAZButton').addEventListener('click', ordenarAZ);  /* Se obtiene la funcion del boton y se manda a llamar su funcion */
   document.getElementById('sortZAButton').addEventListener('click', ordenarZA); /* Se obtiene la funcion del boton y se manda a llamar su funcion */

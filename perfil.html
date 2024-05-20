@@ -1,15 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil de Usuario</title>
+  <style>
+    .editable-field {
+      display: inline-block;
+      position: relative;
+    }
+
+    .edit-icon,
+    .save-icon {
+      position: absolute;
+      top: 0;
+      right: -20px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .editable-field:hover .edit-icon {
+      display: inline-block;
+    }
+
+    .editable-field.edit-mode .save-icon {
+      display: inline-block;
+    }
+  </style>
+
+   <!-- Estilos CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <!-- Carrusel -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+   <link rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+   <!-- Enlace a la fuente Minecraftia -->
+   <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+   <link rel="stylesheet" href="Princi.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav custom-nav">
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="Princi.html">Inicio</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="#producte">Productos</a>
+      </li>
+      <li class="nav-item custom-item" id="loginLink">
+        <a class="nav-link custom-link" href="Login.html">Iniciar Sesión</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="#Foot">Contacto</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="carrito.html"><i class="fas fa-shopping-cart"></i></a>
+      </li>
+      <li class="nav-item custom-item" id="userLink" style="display: none;">
+        <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
   <!-- Botón de Página Principal -->
   <button onclick="irAPrincipal()">Página Principal</button>
   <h1>Perfil de Usuario</h1>
   <div id="user-info"></div>
+
+  <!-- Botón de Editar -->
+  <button id="editarBtn" onclick="editarCampos()">Editar</button>
 
   <!-- Botón de Cerrar Sesión -->
   <button onclick="cerrarSesion()">Cerrar Sesión</button>
@@ -19,36 +93,78 @@
       // Obtener el ID del usuario del localStorage
       const userId = localStorage.getItem('usuarioId');
 
-      // Cargar el archivo JSON externo
-      fetch('data/usuarios.json')
-        .then(response => response.json())
-        .then(data => {
-          // Buscar el usuario por su ID
-          const user = data.customer.find(user => user.id === parseInt(userId));
+      // Obtener los datos del usuario del localStorage
+      const userData = JSON.parse(localStorage.getItem('usuarios'));
 
-          if (user) {
-            // Mostrar la información del usuario en el HTML
-            const userInfoDiv = document.getElementById('user-info');
-            userInfoDiv.innerHTML = `
-              <p><strong>Nombre:</strong> ${user.nombre}</p>
-              <p><strong>Usuario:</strong> ${user.usuario}</p>
-              <p><strong>Correo Electrónico:</strong> ${user.correo_electronico}</p>
-              <p><strong>Dirección:</strong> ${user.calle}, ${user.fraccionamiento}, ${user.codigo_postal}</p>
-              <p><strong>Método de Pago:</strong> ${user.metodo_pago}</p>
-            `;
-          } else {
-            // Si no se encuentra el usuario, mostrar un mensaje de error
-            const userInfoDiv = document.getElementById('user-info');
-            userInfoDiv.innerHTML = '<p>Error: Usuario no encontrado</p>';
-          }
-        })
-        .catch(error => {
-          // Manejar errores de carga del JSON
-          console.error('Error al cargar el archivo JSON:', error);
+      if (userData) {
+        // Buscar el usuario por su ID
+        const user = userData.customer.find(user => user.id === parseInt(userId));
+
+        if (user) {
+          // Mostrar la información del usuario en el HTML
           const userInfoDiv = document.getElementById('user-info');
-          userInfoDiv.innerHTML = '<p>Error: No se pudo cargar la información del usuario</p>';
-        });
+          userInfoDiv.innerHTML = `
+            <p><strong>Nombre:</strong> <span id="nombre" class="editable-field" contentEditable="false">${user.nombre}</span></p>
+            <p><strong>Usuario:</strong> <span id="usuario" class="editable-field" contentEditable="true">${user.usuario}</span></p>
+            <p><strong>Correo Electrónico:</strong> <span id="correo" class="editable-field" contentEditable="true">${user.correo_electronico}</span></p>
+            <p><strong>Dirección</strong></p>
+            <p><strong>Calle:</strong> <span id="calle" class="editable-field" contentEditable="true">${user.calle}</span></p>
+            <p><strong>Fraccionamiento:</strong> <span id="fraccionamiento" class="editable-field" contentEditable="true">${user.fraccionamiento}</span></p>
+            <p><strong>Código Postal:</strong> <span id="codigoPostal" class="editable-field" contentEditable="true">${user.codigo_postal}</span></p>
+            <p><strong>Método de Pago:</strong> <span id="metodoPago" class="editable-field" contentEditable="true">${user.metodo_pago}</span></p>
+          `;
+        } else {
+          // Si no se encuentra el usuario, mostrar un mensaje de error
+          const userInfoDiv = document.getElementById('user-info');
+          userInfoDiv.innerHTML = '<p>Error: Usuario no encontrado</p>';
+        }
+      } else {
+        // Si no se encuentran datos de usuarios en el localStorage, mostrar un mensaje de error
+        const userInfoDiv = document.getElementById('user-info');
+        userInfoDiv.innerHTML = '<p>Error: No se encontraron datos de usuarios</p>';
+      }
     });
+
+    // Función para editar los campos
+    function editarCampos() {
+      const camposEditables = document.querySelectorAll('.editable-field');
+      camposEditables.forEach(campo => {
+        campo.contentEditable = true;
+        campo.parentNode.classList.add('edit-mode');
+      });
+
+      // Cambiar el texto del botón a "Guardar Cambios"
+      const editarBtn = document.getElementById('editarBtn');
+      editarBtn.innerText = 'Guardar Cambios';
+      editarBtn.onclick = guardarCambios;
+    }
+
+    // Función para guardar los cambios
+    function guardarCambios() {
+      const camposEditables = document.querySelectorAll('.editable-field');
+      camposEditables.forEach(campo => {
+        campo.contentEditable = false;
+        campo.parentNode.classList.remove('edit-mode');
+      });
+
+      // Cambiar el texto del botón a "Editar"
+      const editarBtn = document.getElementById('editarBtn');
+      editarBtn.innerText = 'Editar';
+      editarBtn.onclick = editarCampos;
+
+      // Actualizar los valores en el LocalStorage
+      const userId = localStorage.getItem('usuarioId');
+      const userData = JSON.parse(localStorage.getItem('usuarios'));
+      const userIndex = userData.customer.findIndex(user => user.id === parseInt(userId));
+      if (userIndex !== -1) {
+        camposEditables.forEach(campo => {
+          const fieldName = campo.id;
+          const newValue = campo.textContent.trim();
+          userData.customer[userIndex][fieldName] = newValue;
+        });
+        localStorage.setItem('usuarios', JSON.stringify(userData));
+      }
+    }
 
     // Función para cerrar la sesión
     function cerrarSesion() {
@@ -64,4 +180,5 @@
     }
   </script>
 </body>
+
 </html>

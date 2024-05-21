@@ -213,8 +213,8 @@
     }
 
 
-    // Función para guardar los cambios
-    function guardarCambios() {
+        // Función para guardar los cambios
+        function guardarCambios() {
       const camposEditables = document.querySelectorAll('.editable-field');
       camposEditables.forEach(campo => {
         campo.contentEditable = false;
@@ -225,6 +225,7 @@
       const editarBtn = document.getElementById('editarBtn');
       editarBtn.innerText = 'Editar';
       editarBtn.onclick = editarCampos;
+
 
       // Actualizar los valores en el LocalStorage
       const userId = localStorage.getItem('usuarioId');

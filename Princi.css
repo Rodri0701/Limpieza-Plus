@@ -51,11 +51,11 @@ comment-input {
 .navbar {
   width: 100%;
   height: auto;
-  background-color: #ffffff !important;
+  background-color: white !important;
   /* Fondo azul celeste con opacidad */
   border-radius: 5px;
   /* Bordes redondeados */
-  box-shadow: #ffffff;
+  box-shadow: white;
   /* Sombra */
   font-family: 'minecraft-4', sans-serif;
   /* Utilizando la fuente Minecraftia */
@@ -63,7 +63,7 @@ comment-input {
 
 .container_hed {
   display: flex;
-  background-color: #ffffff;
+  background-color: white;
   flex-direction: row; /* Asegura que los elementos se alineen horizontalmente */
   gap: 10px; /* Espacio entre los elementos */
   width: 100%;
@@ -305,43 +305,9 @@ display: block;
   }
 
   .search-input {
-    width: 30% !important; 
+    width: auto !important; 
     height: 40px;
-    margin-left: 10%;
+    margin-left: 10px;
     font-style: normal;
   }
-}
-/* De aqui para abajo son para los estilos de los productos que agrega el admin */
-#productList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px; /* Espacio entre las tarjetas */
-}
-
-.product-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  max-width: 240px; /* Aumentar la anchura máxima */
-  min-height: 300px; /* Ajustar la altura mínima para hacer las tarjetas más largas */
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.product-card img {
-  max-width: 100%;
-  height: auto;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 8px;
-}
-
-.product-details h3 {
-  font-size: 1.2em;
-  margin: 0 0 8px 0;
-}
-
-.product-details p {
-  margin: 0;
-  font-size: 1em;
-  color: #555;
 }

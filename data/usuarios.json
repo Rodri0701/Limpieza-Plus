@@ -40,14 +40,14 @@
     },
     {
       "id": 2,
-      "nombre": "Angel Custumer",
+      "nombre": "Angel Plus",
       "usuario": "angelC",
       "contraseña": "customer456",
       "categoria": "customer",
-      "correo_electronico": "customer2@example.com",
-      "calle": "Avenida XYZ",
-      "fraccionamiento": "Fraccionamiento XYZ",
-      "codigo_postal": "54321",
+      "correo_electronico": "epicmimikyu@gmail.com",
+      "calle": "Mayo de 1812",
+      "fraccionamiento": "Morelos 1",
+      "codigo_postal": "20298",
       "metodo_pago": "tarjeta"
     },
     {

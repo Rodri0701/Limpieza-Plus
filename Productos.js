@@ -210,28 +210,21 @@ function loadProductsFromLocalStorage() {
   }
 }
 
-// Función para cargar productos en la lista de productos
-function loadProducts() {
-  loadProductsFromLocalStorage();
-  const productList = document.getElementById("productList");
-  productList.innerHTML = "";
-  products.forEach(product => {
-    const productCard = document.createElement("div");
-    productCard.classList.add("product-card");
-    productCard.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <div class="product-details">
-        <h3>${product.name}</h3>
-        <p>Precio: $${product.price}</p>
-      </div>
-      <div class="product-actions">
-        <button onclick="editProduct(${product.id})">Editar</button>
-        <button onclick="deleteProduct(${product.id})">Eliminar</button>
-      </div>
-    `;
-    productList.appendChild(productCard);
-  });
+
+
+// Ejemplo de cómo podría ser la función loadProductsFromLocalStorage
+function loadProductsFromLocalStorage() {
+  // Simulación de carga de productos desde localStorage
+  const storedProducts = localStorage.getItem('products');
+  if (storedProducts) {
+    products = JSON.parse(storedProducts);
+  } else {
+    products = []; // Si no hay productos en localStorage, inicializa un array vacío.
+  }
 }
+
+// Llamar a la función para cargar y mostrar los productos
+loadProducts();
 
 // Evento de carga de la página
 document.addEventListener("DOMContentLoaded", () => {

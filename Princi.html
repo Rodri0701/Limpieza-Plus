@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="Princi.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
 </head>
 
 <body onload="inicializarUsuarios(); mostrarAlerta()">
@@ -104,6 +105,7 @@
       </div>
     </div>
     <!-- Compoenete para agregar desde el admin -->
+
     <div id="productList"></div>
 
     <div class="contenedor-tarjetas row" id ="productContainer">
@@ -206,7 +208,65 @@
     }
 
   </script>
-
+<script>
+  function loadProducts() {
+    loadProductsFromLocalStorage();
+    const productList = document.getElementById("productList");
+    productList.innerHTML = ""; // Limpiar el contenido previo
+  
+    if (typeof products === 'undefined' || products.length === 0) {
+      console.log('No hay productos disponibles.');
+      return;
+    }
+  
+    products.forEach(product => {
+      const productCard = document.createElement("div");
+      productCard.classList.add("product-card");
+  
+      const productImage = document.createElement("img");
+      productImage.src = product.image;
+      productImage.alt = product.name;
+  
+      const productDetails = document.createElement("div");
+      productDetails.classList.add("product-details");
+  
+      const productName = document.createElement("h3");
+      productName.textContent = product.name;
+  
+      const productPrice = document.createElement("p");
+      productPrice.textContent = `Precio: $${product.price}`;
+  
+      // Añadir los elementos creados a las tarjetas y luego al contenedor
+      productDetails.appendChild(productName);
+      productDetails.appendChild(productPrice);
+      productCard.appendChild(productImage);
+      productCard.appendChild(productDetails);
+      productList.appendChild(productCard);
+  
+      // Muestra el producto en la consola
+      console.log('Producto:', {
+        nombre: product.name,
+        precio: product.price,
+        imagen: product.image
+      });
+    });
+  }
+  
+  // Ejemplo de cómo podría ser la función loadProductsFromLocalStorage
+  function loadProductsFromLocalStorage() {
+    // Simulación de carga de productos desde localStorage
+    const storedProducts = localStorage.getItem('products');
+    if (storedProducts) {
+      products = JSON.parse(storedProducts);
+    } else {
+      products = []; // Si no hay productos en localStorage, inicializa un array vacío.
+    }
+  }
+  
+  // Llamar a la función para cargar y mostrar los productos
+  loadProducts();
+  localStorage.removeItem('products'); //Solo remueve los productos al recargar
+</script>
 </body>
 
 </html>

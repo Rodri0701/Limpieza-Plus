@@ -5,101 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil de Usuario</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f5f5f5;
-    }
-
-    .navbar {
-      width: 100%;
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-      position: fixed;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar-brand img {
-      height: 120px; /* Aumentar el tamaño del logo */
-    }
-
-    .custom-nav .nav-link {
-      color: #555;
-      font-weight: 500;
-    }
-
-    .custom-nav .nav-link:hover {
-      color: #000;
-    }
-
-    .container {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 100%;
-      max-width: 600px;
-      margin: 80px 20px; /* Ajustar margen superior para evitar superposición con la navbar */
-      text-align: center;
-    }
-
     .editable-field {
       display: inline-block;
       position: relative;
-      padding: 5px 10px;
-      border-radius: 5px;
-      background-color: #f9f9f9;
     }
 
     .edit-icon,
     .save-icon {
       position: absolute;
-      top: 50%;
-      right: -30px;
-      transform: translateY(-50%);
+      top: 0;
+      right: -20px;
       cursor: pointer;
       display: none;
-      font-size: 18px;
-      color: #007bff;
     }
 
     .editable-field:hover .edit-icon {
       display: inline-block;
     }
 
-    .editable-field.edit-mode .edit-icon {
-      display: none;
-    }
-
     .editable-field.edit-mode .save-icon {
       display: inline-block;
     }
-
-    .btn {
-      margin: 10px 5px;
-    }
-
-    .btn-primary {
-      background-color: #007bff;
-      border-color: #007bff;
-    }
-
-    .btn-secondary {
-      background-color: #6c757d;
-      border-color: #6c757d;
-    }
   </style>
-
 
    <!-- Estilos CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -111,54 +39,54 @@
    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
    <link rel="stylesheet" href="Princi.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 
 <body>
+
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLogo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav custom-nav">
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="Princi.html">Inicio</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="#producte">Productos</a>
-        </li>
-        <li class="nav-item custom-item" id="loginLink">
-          <a class="nav-link custom-link" href="Login.html">Iniciar Sesión</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="#Foot">Contacto</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="carrito.html"><i class="fas fa-shopping-cart"></i></a>
-        </li>
-        <li class="nav-item custom-item" id="userLink" style="display: none;">
-          <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container">
-    <h1>Perfil de Usuario</h1>
-    <div id="user-info"></div>
-    <!-- Botón de Editar -->
-    <button id="editarBtn" class="btn btn-primary" onclick="editarCampos()">Editar</button>
-    <!-- Botón de Cerrar Sesión -->
-    <button class="btn btn-secondary" onclick="cerrarSesion()">Cerrar Sesión</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav custom-nav">
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="Princi.html">Inicio</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="#producte">Productos</a>
+      </li>
+      <li class="nav-item custom-item" id="loginLink">
+        <a class="nav-link custom-link" href="Login.html">Iniciar Sesión</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="#Foot">Contacto</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="carrito.html"><i class="fas fa-shopping-cart"></i></a>
+      </li>
+      <li class="nav-item custom-item" id="userLink" style="display: none;">
+        <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
+      </li>
+    </ul>
   </div>
+</nav>
 
+  <!-- Botón de Página Principal -->
+  <button onclick="irAPrincipal()">Página Principal</button>
+  <h1>Perfil de Usuario</h1>
+  <div id="user-info"></div>
 
+  <!-- Botón de Editar -->
+  <button id="editarBtn" onclick="editarCampos()">Editar</button>
+
+  <!-- Botón de Cerrar Sesión -->
+  <button onclick="cerrarSesion()">Cerrar Sesión</button>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -197,7 +125,6 @@
       }
     });
 
-
     // Función para editar los campos
     function editarCampos() {
       const camposEditables = document.querySelectorAll('.editable-field');
@@ -212,9 +139,8 @@
       editarBtn.onclick = guardarCambios;
     }
 
-
-        // Función para guardar los cambios
-        function guardarCambios() {
+    // Función para guardar los cambios
+    function guardarCambios() {
       const camposEditables = document.querySelectorAll('.editable-field');
       camposEditables.forEach(campo => {
         campo.contentEditable = false;
@@ -226,9 +152,8 @@
       editarBtn.innerText = 'Editar';
       editarBtn.onclick = editarCampos;
 
-
-            // Actualizar los valores en el LocalStorage
-            const userId = localStorage.getItem('usuarioId');
+      // Actualizar los valores en el LocalStorage
+      const userId = localStorage.getItem('usuarioId');
       const userData = JSON.parse(localStorage.getItem('usuarios'));
       const userIndex = userData.customer.findIndex(user => user.id === parseInt(userId));
       if (userIndex !== -1) {
@@ -241,14 +166,16 @@
       }
     }
 
-
-  
     // Función para cerrar la sesión
     function cerrarSesion() {
       // Eliminar el valor del ID de usuario del localStorage
       localStorage.removeItem('usuarioId');
-
       // Redirigir al usuario a la página de inicio de sesión
+      window.location.href = 'Princi.html';
+    }
+
+    // Función para redirigir a la página principal
+    function irAPrincipal() {
       window.location.href = 'Princi.html';
     }
   </script>

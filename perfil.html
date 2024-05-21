@@ -111,54 +111,54 @@
    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
    <link rel="stylesheet" href="Princi.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body>
-
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-    <ul class="navbar-nav custom-nav">
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="Princi.html">Inicio</a>
-      </li>
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="#producte">Productos</a>
-      </li>
-      <li class="nav-item custom-item" id="loginLink">
-        <a class="nav-link custom-link" href="Login.html">Iniciar Sesión</a>
-      </li>
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="#Foot">Contacto</a>
-      </li>
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
-      </li>
-      <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="carrito.html"><i class="fas fa-shopping-cart"></i></a>
-      </li>
-      <li class="nav-item custom-item" id="userLink" style="display: none;">
-        <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
-      </li>
-    </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLogo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav custom-nav">
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="Princi.html">Inicio</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#producte">Productos</a>
+        </li>
+        <li class="nav-item custom-item" id="loginLink">
+          <a class="nav-link custom-link" href="Login.html">Iniciar Sesión</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#Foot">Contacto</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="carrito.html"><i class="fas fa-shopping-cart"></i></a>
+        </li>
+        <li class="nav-item custom-item" id="userLink" style="display: none;">
+          <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Perfil de Usuario</h1>
+    <div id="user-info"></div>
+    <!-- Botón de Editar -->
+    <button id="editarBtn" class="btn btn-primary" onclick="editarCampos()">Editar</button>
+    <!-- Botón de Cerrar Sesión -->
+    <button class="btn btn-secondary" onclick="cerrarSesion()">Cerrar Sesión</button>
   </div>
-</nav>
 
-  <!-- Botón de Página Principal -->
-  <button onclick="irAPrincipal()">Página Principal</button>
-  <h1>Perfil de Usuario</h1>
-  <div id="user-info"></div>
 
-  <!-- Botón de Editar -->
-  <button id="editarBtn" onclick="editarCampos()">Editar</button>
-
-  <!-- Botón de Cerrar Sesión -->
-  <button onclick="cerrarSesion()">Cerrar Sesión</button>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -196,6 +196,7 @@
         userInfoDiv.innerHTML = '<p>Error: No se encontraron datos de usuarios</p>';
       }
     });
+
 
     // Función para editar los campos
     function editarCampos() {

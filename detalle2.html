@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="Princi.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (gtag.js) -->
@@ -21,34 +22,7 @@
 
   <!-- Aqui termina el inicio del boton -->
 <style>
-    .navbar {
-      width: 100% ;
-      height: auto;
-      background-color: rgba(244, 231, 231, 0.8)!important; /* Fondo azul celeste con opacidad */
-      border-radius: 5px; /* Bordes redondeados */
-      box-shadow: 0px 5px 10px rgba(46, 175, 210, 1); /* Sombra */
-      font-family: 'minecraft-4', sans-serif; /* Utilizando la fuente Minecraftia */
-    }
-    .navbar-brand img {
-      width: 100px; /* Ajusta el tamaño de tu logotipo según sea necesario */
-    }
-    .navbar-nav .custom-item .nav-link {
-      font-family: 'Minecraft', sans-serif;
-      transition: color 0.3s;
-      margin-right: 20px;
-      font-size: 18px;
-      background: linear-gradient(to right, #5cb9db, #60d3b3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .navbar-nav .custom-item .nav-link:hover {
-      background: linear-gradient(to right, #add8e6, #d974f2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .navbar-nav .custom-item .nav-link:active {
-      color: #ff0000;
-    }
+   
     /* Estilos para la tarjeta de detalle */
     .tarjeta-detalle {
   width: 80%;
@@ -113,52 +87,51 @@
 
 </head>
 <body>
-
-  <div class="container_hed navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
-    <div>
-  <div class="col">
-    <!-- Barra de búsqueda -->
-      <form id="searchForm" class="form-inline my-2 my-lg-0" style="padding: 10px;">
-        <input class="search-input form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search" id="searchInput">
-        <button class=" btn  my-2 my-sm-0" type="button" id="searchButton" style="background-color: rgb(207, 207, 207); width: 60px;"><i class="fas fa-search icon"></i></button>
-        <a class="custom-link" href="carrito.html"><i class="fas fa-shopping-cart fa-2x" style="margin-left: 50px; color: black;"></i></a>
-      </form>
+<!-- Navbar -->
+<div class="container_hed navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
+  <div>
+<div class="col">
+  <!-- Barra de búsqueda -->
+    <form id="searchForm" class="form-inline my-2 my-lg-0" style="padding: 10px;">
+      <input class="search-input form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search" id="searchInput">
+      <button class=" btn  my-2 my-sm-0" type="button" id="searchButton" style="background-color: rgb(207, 207, 207); width: 60px;"><i class="fas fa-search icon"></i></button>
+      <a class="custom-link" href="carrito.html"><i class="fas fa-shopping-cart fa-2x" style="margin-left: 50px; color: black;"></i></a>
+    </form>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon" style="color: rgba(252, 252, 252, 0.973);"></span>
+  </button>
+  <div class=" justify-content-end" id="navbarNav" style="background-color: rgb(11, 158, 243); width: 100%; border-radius: 5px;">
+    <ul class="navbar-nav custom-nav">
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="Princi.html">Inicio</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="#producte">Productos</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="Login.html">Inicio Sesion</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="#Foot">Contacto</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
+      </li>
+      <li class="nav-item custom-item">
+        <a class="nav-link custom-link" href="favoritos.html">Lista de favoritos</a>
+      </li>
+    </ul>
   </div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" style="color: rgba(252, 252, 252, 0.973);"></span>
-    </button>
-    <div class=" justify-content-end" id="navbarNav" style="background-color: rgb(11, 158, 243); width: 100%; border-radius: 5px;">
-      <ul class="navbar-nav custom-nav">
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="Princi.html">Inicio</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="#producte">Productos</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="Login.html">Inicio Sesion</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="#Foot">Contacto</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
-        </li>
-        <li class="nav-item custom-item">
-          <a class="nav-link custom-link" href="favoritos.html">Lista de favoritos</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+</nav>
 </div>
 </div>
-    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

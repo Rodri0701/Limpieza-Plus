@@ -227,8 +227,8 @@
       editarBtn.onclick = editarCampos;
 
 
-      // Actualizar los valores en el LocalStorage
-      const userId = localStorage.getItem('usuarioId');
+            // Actualizar los valores en el LocalStorage
+            const userId = localStorage.getItem('usuarioId');
       const userData = JSON.parse(localStorage.getItem('usuarios'));
       const userIndex = userData.customer.findIndex(user => user.id === parseInt(userId));
       if (userIndex !== -1) {
@@ -240,6 +240,7 @@
         localStorage.setItem('usuarios', JSON.stringify(userData));
       }
     }
+
 
     // Función para cerrar la sesión
     function cerrarSesion() {

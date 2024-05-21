@@ -9,28 +9,97 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand img {
+      height: 120px; /* Aumentar el tamaño del logo */
+    }
+
+    .custom-nav .nav-link {
+      color: #555;
+      font-weight: 500;
+    }
+
+    .custom-nav .nav-link:hover {
+      color: #000;
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 100%;
+      max-width: 600px;
+      margin: 80px 20px; /* Ajustar margen superior para evitar superposición con la navbar */
+      text-align: center;
+    }
+
     .editable-field {
       display: inline-block;
       position: relative;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
     }
 
     .edit-icon,
     .save-icon {
       position: absolute;
-      top: 0;
-      right: -20px;
+      top: 50%;
+      right: -30px;
+      transform: translateY(-50%);
       cursor: pointer;
       display: none;
+      font-size: 18px;
+      color: #007bff;
     }
 
     .editable-field:hover .edit-icon {
       display: inline-block;
     }
 
+    .editable-field.edit-mode .edit-icon {
+      display: none;
+    }
+
     .editable-field.edit-mode .save-icon {
       display: inline-block;
     }
+
+    .btn {
+      margin: 10px 5px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
   </style>
+
 
    <!-- Estilos CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">

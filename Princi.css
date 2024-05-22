@@ -155,30 +155,25 @@ owl-carousel .owl-item img {
   right: -30px;
 }
 
-.contenedor-tarjetas {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan a la siguiente línea */
-}
-
 .tarjeta-producto {
-  display: flex; /* Usar flexbox para las tarjetas */
-  flex-direction: column; /* Establecer la dirección del eje principal a columna */
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Asegura que los botones se posicionen en la parte inferior */
   font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
   text-align: center;
-  width: calc(25% - 40px); /* Ancho de cada tarjeta, 25% del contenedor con margen */
-  max-width: 300px; /* Ancho máximo para evitar que las tarjetas sean demasiado grandes */
+  width: 300px;
   height: auto;
   border: 1px solid #ccc;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 20px; /* Espacio entre las tarjetas */
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
   box-shadow: 0px 12px 20px rgba(46, 175, 210, 1.5);
 }
+
 
 .tarjeta-producto img {
 width: 50%;

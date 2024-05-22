@@ -1,0 +1,110 @@
+.tarjeta-detalle {
+    width: 80%;
+    text-align: center;
+    margin: 50px auto;
+    display: flex;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 1.5);
+    border-radius: 10px;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarjeta-detalle img {
+    max-width: 100%; /* Modificado */
+    height: auto; 
+    object-fit: cover;
+  }
+
+  .contenido {
+    padding: 25px;
+    background-color: #babbbc;
+  }
+
+  .contenido h2 {
+    text-align: center;
+    font-size: 35px;
+    background: linear-gradient(to right, #63abe1, #178b8d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+
+  .contenido p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .boton {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    padding: 10px 20px;
+    color: #000000;
+    background: linear-gradient(to right, #b2e5f5, #178b8d);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .boton:hover {
+    background-color: #0056b3;
+  }
+
+  .reseña {
+    width: 80%;
+    margin: 50px auto;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra para el contenedor de reseñas */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+
+  .reseña h3 {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .reseña .comentario {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para cada reseña individual */
+  }
+
+  .reseña .comentario p {
+    font-size: 18px;
+  }
+
+  .reseña .comentario .usuario {
+    font-weight: bold;
+  }
+
+  .reseña .comentario .fecha {
+    color: #888;
+  }
+
+  @media (max-width: 768px) {
+    .tarjeta-detalle {
+      flex-direction: column;
+    }
+
+    .tarjeta-detalle img {
+      width: 100%;
+    }
+
+    .contenido {
+      width: 100%;
+    }}

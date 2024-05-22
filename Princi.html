@@ -26,6 +26,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="Princi.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   
 </head>
 
 <body onload="inicializarUsuarios(); mostrarAlerta()">
@@ -105,7 +107,9 @@
     </div>
     <!-- Compoenete para agregar desde el admin -->
 
-    <div id="productList"></div>
+    <div id="productList">
+      <!-- Las tarjetas se agregarán dinámicamente con JavaScript -->
+    </div>
 
     <div class="contenedor-tarjetas row" id ="productContainer">
       <!-- Las tarjetas de productos se renderizarán aquí -->
@@ -265,6 +269,7 @@
   // Llamar a la función para cargar y mostrar los productos
   loadProducts();
   localStorage.removeItem('products'); //Solo remueve los productos al recargar
+  
 </script>
 </body>
 

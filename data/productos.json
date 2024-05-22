@@ -5,9 +5,9 @@
       "Nombre": "Ariel",
       "Descripcion": "Contiene una fórmula que te permite usar menos producto por carga de lavado.",
       "Precio": 5.99,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/1.png?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/1.png?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/1.png?raw=true"
+      "Imagen1": "/imagenes/1.png",
+      "Imagen2": "/imagenes/1.png",
+      "Imagen3": "/imagenes/1.png"
   },
   {
       "ID": 2,

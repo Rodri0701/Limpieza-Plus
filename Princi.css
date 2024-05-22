@@ -56,6 +56,7 @@ comment-input {
   border-radius: 5px;
   /* Bordes redondeados */
   box-shadow: white;
+  border-radius: 5px;
   /* Sombra */
   font-family: 'minecraft-4', sans-serif;
   /* Utilizando la fuente Minecraftia */
@@ -63,11 +64,11 @@ comment-input {
 
 .container_hed {
   display: flex;
-  background-color: white;
+  /*background-color: rgb(255, 255, 255);*/
   flex-direction: row; /* Asegura que los elementos se alineen horizontalmente */
   gap: 10px; /* Espacio entre los elementos */
   width: 100%;
-  height: auto;
+  height: 90px;
   align-items: center;
 }
 
@@ -89,13 +90,15 @@ owl-carousel .owl-item img {
 
 .navbar-brand img {
   width: 120px;
+  margin-top: 10px;
+  margin-left: 20px;
   /* Ajusta el tamaño de tu logotipo según sea necesario */
 }
 
 .search-input {
   width: 50% !important; 
   height: 40px;
-  margin-left: 20%;
+  /*margin-left: 20%;*/
   font-style: normal;
 }
 
@@ -122,6 +125,10 @@ owl-carousel .owl-item img {
 
 .navbar-nav .custom-item .nav-link:active {
   color: #ff0000;
+}
+
+.navbar-nav .nav-item {
+  flex-grow: 1;
 }
 
 /* Estilos para el carrusel */
@@ -311,3 +318,4 @@ display: block;
     font-style: normal;
   }
 }
+

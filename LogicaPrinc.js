@@ -1,18 +1,20 @@
 // Función para cargar datos JSON en localStorage
 function CargarDatosJson() {
     // Cargar productos.json
-    fetch('/data/productos.json')
+    fetch('data/productos.json')
       .then(response => response.json())
       .then(data => {
         localStorage.setItem('productos', JSON.stringify(data));
+        console.log('Productos cargados en localStorage:', data);
       })
       .catch(error => console.error('Error al cargar productos.json:', error));
   
     // Cargar usuarios.json
-    fetch('/data/usuarios.json')
+    fetch('data/usuarios.json')
       .then(response => response.json())
       .then(data => {
         localStorage.setItem('usuarios', JSON.stringify(data));
+        console.log('Usuarios cargados en localStorage:', data);
       })
       .catch(error => console.error('Error al cargar usuarios.json:', error));
   }

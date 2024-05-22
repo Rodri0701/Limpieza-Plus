@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4WMSS4Y8K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-V4WMSS4Y8K');
+  </script>
+  <title>Limpieza Plus</title>
+  <meta name="description" content="Tu Solución de Limpieza Profesional">
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Carrusel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <!-- Enlace a la fuente Minecraftia -->
+  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+  <link rel="stylesheet" href="Princi.css">
+  <title>Admin</title>
+  <style>
+      .bodyAdmin {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+      }
+      .container {
+          max-width: 1000px;
+          margin: 20px auto;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0px 5px 10px rgba(46, 175, 210, 1);
+      }
+      h1 {
+          text-align: center;
+      }
+      #btnAdd {
+          margin-bottom: 10px;
+      }
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      table, th, td {
+          border: 1px solid #ddd;
+      }
+      th, td {
+          padding: 8px;
+      }
+      th {
+          background-color: #f2f2f2;
+      }
+      .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.4);
+          overflow: auto;
+      }
+      .modal-content {
+          background-color: #fefefe;
+          margin: 10% auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+          border-radius: 5px;
+      }
+      .close {
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+          cursor: pointer;
+      }
+      .close:hover,
+      .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+      }
+      .product-card {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 10px;
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+      }
+      .product-card img {
+          max-width: 100px;
+          height: auto;
+          margin-right: 10px;
+      }
+      .product-details {
+          flex: 1;
+      }
+      .product-actions button {
+          margin-left: 10px;
+      }
+  </style>
+</head>
+<body onload="loadProducts()">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav custom-nav">
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="Princi.html">Inicio</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#producte">Productos</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="Login.html">Inicio Sesion</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="#Foot">Contacto</a>
+        </li>
+        <li class="nav-item custom-item">
+          <a class="nav-link custom-link" href="Adminpanel.html" onclick="toggleAdminPanel()">Administrador</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <button id="btnAdd">Agregar Producto</button>
+    <div id="productList">
+        <!-- Aquí se agregarán los productos dinámicamente -->
+    </div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <form id="productForm">
+        <label for="productName">Nombre:</label>
+        <input type="text" id="productName" required>
+        <label for="productPrice">Precio:</label>
+        <input type="number" id="productPrice" required>
+        <label for="productImage">Imagen:</label>
+        <input type="file" id="productImage" accept="image/*">
+        <input type="hidden" id="productId">
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Función para guardar productos en localStorage
+    function saveProductsToLocalStorage() {
+      localStorage.setItem('products', JSON.stringify(products));
+      //console.log('Productos guardados en localStorage:', products);
+    }
+
+    // Función para cargar productos desde localStorage
+    function loadProductsFromLocalStorage() {
+      const storedProducts = localStorage.getItem('products');
+      if (storedProducts) {
+        products = JSON.parse(storedProducts);
+      //  console.log('Productos cargados desde localStorage:', products);
+      }
+    }
+
+    // Mock de datos (para pruebas)
+    let products = [];
+
+    // Función para cargar productos en la lista de productos
+    function loadProducts() {
+      loadProductsFromLocalStorage();
+      const productList = document.getElementById("productList");
+      productList.innerHTML = "";
+      products.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.classList.add("tarjeta-producto");
+        productCard.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <div class="product-details">
+            <h3>${product.name}</h3>
+            <p>Precio: $${product.price}</p>
+            
+          </div>
+          <div class="product-actions">
+            <button onclick="editProduct(${product.id})">Editar</button>
+            <button onclick="deleteProduct(${product.id})">Eliminar</button>
+          </div>
+        `;
+        productList.appendChild(productCard);
+      });
+    }
+
+    // Función para agregar un producto
+    function addProduct(event) {
+      event.preventDefault();
+      const productName = document.getElementById("productName").value;
+      const productPrice = parseFloat(document.getElementById("productPrice").value);
+      const productImage = document.getElementById("productImage").files[0];
+
+      if (productName && !isNaN(productPrice)) {
+        if (productImage) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const newProduct = {
+              id: products.length + 1,
+              name: productName,
+              price: productPrice,
+              image: e.target.result
+            };
+            products.push(newProduct);
+            saveProductsToLocalStorage();
+            closeModal();
+            loadProducts();
+          }
+          reader.readAsDataURL(productImage);
+        } else {
+          const newProduct = {
+            id: products.length + 1,
+            name: productName,
+            price: productPrice,
+            image: "https://via.placeholder.com/150" // Imagen predeterminada si no se selecciona una imagen
+          };
+          products.push(newProduct);
+          saveProductsToLocalStorage();
+          closeModal();
+          loadProducts();
+        }
+      } else {
+        alert("Por favor ingresa un nombre y un precio válido.");
+      }
+    }
+
+    // Función para editar un producto
+    function editProduct(productId) {
+      const product = products.find(p => p.id === productId);
+      if (product) {
+        document.getElementById("modalTitle").innerText = "Editar Producto";
+        document.getElementById("productName").value = product.name;
+        document.getElementById("productPrice").value = product.price;
+        document.getElementById("productId").value = product.id;
+        openModal();
+      } else {
+        alert("Producto no encontrado.");
+      }
+    }
+
+    // Función para actualizar un producto
+    function updateProduct(event) {
+      event.preventDefault();
+      const productId = parseInt(document.getElementById("productId").value);
+      const productName = document.getElementById("productName").value;
+      const productPrice = parseFloat(document.getElementById("productPrice").value);
+      const productImage = document.getElementById("productImage").files[0];
+
+      if (productId && productName && !isNaN(productPrice)) {
+        const productIndex = products.findIndex(p => p.id === productId);
+        if (productIndex !== -1) {
+          if (productImage) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              products[productIndex].name = productName;
+              products[productIndex].price = productPrice;
+              products[productIndex].image = e.target.result;
+              saveProductsToLocalStorage();
+              closeModal();
+              loadProducts();
+            }
+            reader.readAsDataURL(productImage);
+          } else {
+            products[productIndex].name = productName;
+            products[productIndex].price = productPrice;
+            saveProductsToLocalStorage();
+            closeModal();
+            loadProducts();
+          }
+        } else {
+          alert("Producto no encontrado.");
+        }
+      } else {
+        alert("Por favor ingresa un nombre y un precio válido.");
+      }
+    }
+
+    // Función para eliminar un producto
+    function deleteProduct(productId) {
+      const confirmDelete = confirm("¿Estás seguro de que quieres eliminar este producto?");
+      if (confirmDelete) {
+        products = products.filter(p => p.id !== productId);
+        saveProductsToLocalStorage();
+        loadProducts();
+      }
+    }
+
+    // Función para abrir el modal de agregar producto
+    function openModal() {
+      document.getElementById("modal").style.display = "block";
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Eventos
+    document.addEventListener("DOMContentLoaded", () => {
+      loadProducts();
+      document.getElementById("btnAdd").addEventListener("click", openModal);
+      document.querySelector(".close").addEventListener("click", closeModal);
+      document.getElementById("productForm").addEventListener("submit", function(event) {
+        const productId = document.getElementById("productId").value;
+        if (productId) {
+          updateProduct(event);
+        } else {
+          addProduct(event);
+        }
+      });
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer id="Foot" class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h4>Información</h4>
+          <ul>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="Terminos_Condi.html">Términos y condiciones</a></li>
+            <li><a href="Politica.html">Política de privacidad</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Clientes</h4>
+          <ul>
+            <li><a href="#">Mi cuenta</a></li>
+            <li><a href="#">Historial de pedidos</a></li>
+            <li><a href="#">Wishlist</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Soporte</h4>
+          <ul>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#">Política de reembolso</a></li>
+            <li><a href="#">Métodos de pago</a></li>
+            <li><a href="#">Soporte técnico</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Redes sociales</h4>
+          <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=61558889497777&mibextid=LQQJ4d">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="https://www.instagram.com/limpieza_pluss?igsh=ZWVueGcyMWhsMmFw">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

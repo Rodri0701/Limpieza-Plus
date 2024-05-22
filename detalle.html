@@ -99,8 +99,10 @@
     </div>
   </div>
 
-  <div class="reseña">
-    <h3 class="Subtitle">Reseñas de los clientes</h3>
+  <div class="reseña
+  >
+  <h3 class=" Subtitle">Reseñas de los clientes</h3>
+
     <!-- Formulario para agregar reseñas -->
     <form id="reviewForm">
       <div class="form-group">
@@ -146,7 +148,7 @@
       if (producto) {
         // Rellenar los campos de información del producto
         document.getElementById('productName').textContent = producto.Nombre;
-        document.getElementById('productDescription').textContent = producto.Descripcion;
+        document.getElementById('productDescription').textContent = producto.DescripcionLarga;
         document.getElementById('productPrice').textContent = `$${producto.Precio} MXN`;
 
         // Cargar la imagen del producto
@@ -160,50 +162,90 @@
 
     paypal.Buttons({
       createOrder: function (data, actions) {
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              currency_code: 'MXN', // Cambiar a pesos mexicanos
-              value: '100' // Monto del pago
-            }
-          }]
-        });
+        // Obtener el producto almacenado en localStorage
+        const productId = parseInt(localStorage.getItem('productId')); // Convertir a número
+
+        const productos = JSON.parse(localStorage.getItem('productos')) || [];
+
+        // Buscar el producto por su ID
+        const producto = productos.find(item => item.ID === productId);
+
+        if (producto) {
+          // Utilizar el precio del producto como el valor del pago
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                currency_code: 'MXN',
+                value: producto.Precio.toFixed(2) // Utilizar el precio del producto
+              }
+            }]
+          });
+        } else {
+          console.error('El producto no se encontró en localStorage.');
+        }
       },
       onApprove: function (data, actions) {
         return actions.order.capture().then(function (details) {
           alert('Pago completado por ' + details.payer.name.given_name + '!');
         });
       }
-
     }).render('#paypal-button');
+
     // Agregar evento para enviar la reseña
-    document.getElementById('reviewForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Evitar el envío del formulario por defecto
+    if (document.getElementById('reviewForm')) {
+      document.getElementById('reviewForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evitar el envío del formulario por defecto
 
-      // Obtener los valores del formulario
-      var userName = document.getElementById('userName').value;
-      var userReview = document.getElementById('userReview').value;
-      var userRating = document.getElementById('userRating').value;
+        // Obtener los valores del formulario
+        var userName = document.getElementById('userName').value;
+        var userReview = document.getElementById('userReview').value;
+        var userRating = document.getElementById('userRating').value;
 
-      // Crear un nuevo elemento de reseña
-      var newReview = document.createElement('div');
-      newReview.classList.add('comentario');
-      newReview.innerHTML = `
+        // Crear un nuevo elemento de reseña
+        var newReview = document.createElement('div');
+        newReview.classList.add('comentario');
+        newReview.innerHTML = `
         <p class="usuario">${userName}</p>
         <p class="fecha">${new Date().toLocaleDateString('es-MX')}</p>
         <p class="rating">${'★'.repeat(userRating)}</p>
         <p>${userReview}</p>
       `;
 
-      // Agregar la nueva reseña al contenedor de reseñas
-      var reviewsContainer = document.getElementById('reviewsContainer');
-      reviewsContainer.insertBefore(newReview, reviewsContainer.firstChild);
+        // Agregar la nueva reseña al contenedor de reseñas
+        var reviewsContainer = document.getElementById('reviewsContainer');
+        reviewsContainer.insertBefore(newReview, reviewsContainer.firstChild);
 
-      // Limpiar el formulario después de enviar la reseña
-      document.getElementById('userName').value = '';
-      document.getElementById('userReview').value = '';
-      document.getElementById('userRating').value = '';
-    });
+        // Limpiar el formulario después de enviar la reseña
+        document.getElementById('userName').value = '';
+        document.getElementById('userReview').value = '';
+        document.getElementById('userRating').value = '';
+      });
+    }
+
+    // Cargar las reseñas almacenadas localmente
+    function cargarReseñas() {
+      const reseñas = JSON.parse(localStorage.getItem('reseñas')) || [];
+      const reviewsContainer = document.getElementById('reviewsContainer');
+      reviewsContainer.innerHTML = ''; // Limpiar el contenedor antes de cargar las reseñas
+
+      if (reseñas.length === 0) {
+        reviewsContainer.innerHTML = '<p>Aún no hay reseñas.</p>';
+      } else {
+        reseñas.forEach(function (reseña) {
+          const newReview = document.createElement('div');
+          newReview.classList.add('comentario');
+          newReview.innerHTML = `
+          <p class="usuario">${reseña.usuario}</p>
+          <p class="fecha">${reseña.fecha}</p>
+          <p class="rating">${'★'.repeat(reseña.calificación)}</p>
+          <p>${reseña.resena}</p>
+        `;
+          reviewsContainer.appendChild(newReview);
+        });
+      }
+    }
+
+    cargarReseñas(); // Llamar a la función para cargar las reseñas cuando se cargue la página
   </script>
 </body>
 

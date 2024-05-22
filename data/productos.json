@@ -1,102 +1,112 @@
 [
-  {
-      "ID": 1,
-      "Categoria": "Detergentes",
-      "Nombre": "Ariel",
-      "Descripcion": "Contiene una fórmula que te permite usar menos producto por carga de lavado.",
-      "Precio": 5.99,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/1.png?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/1.png?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/1.png?raw=true"
-  },
-  {
-      "ID": 2,
-      "Categoria": "Limpiadores",
-      "Nombre": "Lysol",
-      "Descripcion": "Este producto cuenta con envase recargable para contribuir al medio ambiente.",
-      "Precio": 7.99,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/2.png?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/2.png?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/2.png?raw=true"
-  },
-  {
-      "ID": 3,
-      "Categoria": "Limpiadores",
-      "Nombre": "Bel en espray",
-      "Descripcion": "Su fórmula concentrada no deja rayas ni residuos permitiéndote una limpieza más profunda.",
-      "Precio": 4.99,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/3.jpeg?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/3.jpeg?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/3.jpeg?raw=true"
-  },
-  {
-      "ID": 4,
-      "Categoria": "Limpiadores",
-      "Nombre": "Lysol",
-      "Descripcion": "Contiene una solución que se disuelve con agua, ofreciendo una solución más compacta y fácil de almacenar.",
-      "Precio": 6.99,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/4.jpg?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/4.jpg?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/4.jpg?raw=true"
-  },
-  {
-      "ID": 5,
-      "Categoria": "Cuidado del hogar",
-      "Nombre": "Mr. Músculo",
-      "Descripcion": "Su fórmula biodegradable permite desatascar las tuberías de manera efectiva y sin dañarlas.",
-      "Precio": 3.99,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/5.png?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/5.png?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/5.png?raw=true"
-  },
-  {
-      "ID": 6,
-      "Categoria": "Cuidado del hogar",
-      "Nombre": "Vanish",
-      "Descripcion": "Funciona a temperatura más baja ayudando a ahorrar energía y proteger los tejidos delicados.",
-      "Precio": 8.99,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/6.png?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/6.png?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/6.png?raw=true"
-  },
-  {
-      "ID": 7,
-      "Categoria": "Limpiadores",
-      "Nombre": "Febreze",
-      "Descripcion": "Fragancias naturales que ofrecen una opción amigable con el medio ambiente.",
-      "Precio": 4.49,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/7.webp?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/7.webp?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/7.webp?raw=true"
-  },
-  {
-      "ID": 8,
-      "Categoria": "Limpiadores",
-      "Nombre": "Pinol",
-      "Descripcion": "Fórmula biodegradable que contribuye al impacto ambiental.",
-      "Precio": 2.99,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/8.png?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/8.png?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/8.png?raw=true"
-  },
-  {
-      "ID": 9,
-      "Categoria": "Detergentes",
-      "Nombre": "Fabuloso",
-      "Descripcion": "Su fórmula de dosificación permite a los usuarios mezclar el producto de mejor manera.",
-      "Precio": 6.49,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/9.png?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/9.png?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/9.png?raw=true"
-  },
-  {
-      "ID": 10,
-      "Categoria": "Higiene personal",
-      "Nombre": "Cloralex",
-      "Descripcion": "Su nuevo material biodegradable ayuda a reducir el impacto ambiental.",
-      "Precio": 4.99,
-      "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/10.jpg?raw=true",
-      "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/10.png?raw=true",
-      "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/10.png?raw=true"
-  }
+    {
+        "ID": 1,
+        "Categoria": "Detergentes",
+        "Nombre": "Ariel",
+        "Descripcion": "Contiene una fórmula que te permite usar menos producto por carga de lavado.",
+        "DescripcionLarga": "Ariel es una marca de detergentes reconocida por su eficacia y calidad. Su fórmula concentrada permite obtener excelentes resultados de limpieza utilizando una menor cantidad de producto por carga de lavado. Además, su fragancia fresca deja la ropa con un agradable aroma que perdura.",
+        "Precio": 5.99,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/1.png?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/1.png?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/1.png?raw=true"
+    },
+    {
+        "ID": 2,
+        "Categoria": "Limpiadores",
+        "Nombre": "Lysol",
+        "Descripcion": "Este producto cuenta con envase recargable para contribuir al medio ambiente.",
+        "DescripcionLarga": "Lysol es una marca reconocida por su eficacia en la limpieza y desinfección de superficies. Su envase recargable está diseñado para reducir el impacto ambiental, permitiendo reutilizar el mismo envase varias veces. Con Lysol, puedes mantener tu hogar limpio y protegido de gérmenes y bacterias.",
+        "Precio": 7.99,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/2.png?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/2.png?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/2.png?raw=true"
+    },
+    {
+        "ID": 3,
+        "Categoria": "Limpiadores",
+        "Nombre": "Bel en espray",
+        "Descripcion": "Su fórmula concentrada no deja rayas ni residuos permitiéndote una limpieza más profunda.",
+        "DescripcionLarga": "Bel en espray es un limpiador multiusos ideal para mantener tu hogar limpio y fresco. Su fórmula concentrada ofrece una limpieza profunda sin dejar rayas ni residuos. Con Bel en espray, puedes limpiar fácilmente todas las superficies de tu hogar, dejándolas impecables y con un agradable aroma.",
+        "Precio": 4.99,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/3.jpeg?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/3.jpeg?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/3.jpeg?raw=true"
+    },
+    {
+        "ID": 4,
+        "Categoria": "Limpiadores",
+        "Nombre": "Lysol",
+        "Descripcion": "Contiene una solución que se disuelve con agua, ofreciendo una solución más compacta y fácil de almacenar.",
+        "DescripcionLarga": "Lysol es una marca líder en la limpieza y desinfección del hogar. Su fórmula concentrada se disuelve fácilmente en agua, ofreciendo una solución más compacta y fácil de almacenar. Con Lysol, puedes limpiar y desinfectar todas las superficies de tu hogar, eliminando eficazmente gérmenes y bacterias.",
+        "Precio": 6.99,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/4.jpg?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/4.jpg?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/4.jpg?raw=true"
+    },
+    {
+        "ID": 5,
+        "Categoria": "Cuidado del hogar",
+        "Nombre": "Mr. Músculo",
+        "Descripcion": "Su fórmula biodegradable permite desatascar las tuberías de manera efectiva y sin dañarlas.",
+        "DescripcionLarga": "Mr. Músculo es un producto diseñado para el cuidado del hogar, especialmente formulado para desatascar tuberías de manera efectiva y sin dañarlas. Su fórmula biodegradable disuelve eficazmente los residuos y obstrucciones, dejando las tuberías limpias y libres de obstrucciones.",
+        "Precio": 3.99,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/5.png?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/5.png?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/5.png?raw=true"
+    },
+    {
+        "ID": 6,
+        "Categoria": "Cuidado del hogar",
+        "Nombre": "Vanish",
+        "Descripcion": "Funciona a temperatura más baja ayudando a ahorrar energía y proteger los tejidos delicados.",
+        "DescripcionLarga": "Vanish es un producto innovador diseñado para el cuidado de la ropa. Su fórmula especial funciona incluso a temperaturas más bajas, lo que ayuda a ahorrar energía y proteger los tejidos delicados. Con Vanish, puedes mantener tu ropa limpia, fresca y como nueva por más tiempo.",
+        "Precio": 8.99,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/6.png?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/6.png?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/6.png?raw=true"
+    },
+    {
+        "ID": 7,
+        "Categoria": "Limpiadores",
+        "Nombre": "Febreze",
+        "Descripcion": "Fragancias naturales que ofrecen una opción amigable con el medio ambiente.",
+        "DescripcionLarga": "Febreze es conocido por sus fragancias naturales que refrescan y desodorizan el ambiente de manera eficaz. Su fórmula única elimina los malos olores y deja un aroma fresco y agradable en tu hogar. Con Febreze, puedes disfrutar de un ambiente limpio y acogedor en cualquier momento.",
+        "Precio": 4.49,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/7.webp?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/7.webp?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/7.webp?raw=true"
+    },
+    {
+        "ID": 8,
+        "Categoria": "Limpiadores",
+        "Nombre": "Pinol",
+        "Descripcion": "Fórmula biodegradable que contribuye al impacto ambiental.",
+        "DescripcionLarga": "Pinol es un limpiador multiusos con una fórmula biodegradable que limpia y desinfecta eficazmente todas las superficies. Su poderosa acción elimina la suciedad y los gérmenes, contribuyendo al cuidado del medio ambiente. Con Pinol, puedes mantener tu hogar limpio y protegido de manera responsable.",
+        "Precio": 2.99,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/8.png?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/8.png?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/8.png?raw=true"
+    },
+    {
+        "ID": 9,
+        "Categoria": "Detergentes",
+        "Nombre": "Fabuloso",
+        "Descripcion": "Su fórmula de dosificación permite a los usuarios mezclar el producto de mejor manera.",
+        "DescripcionLarga": "Fabuloso es un detergente multiusos con una fórmula de dosificación que permite a los usuarios mezclar el producto de manera precisa y eficaz. Su poder de limpieza elimina la suciedad más difícil, dejando tus superficies limpias y con un agradable aroma. Con Fabuloso, puedes disfrutar de un hogar impecable y fresco.",
+        "Precio": 6.49,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/9.png?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/9.png?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/9.png?raw=true"
+    },
+    {
+        "ID": 10,
+        "Categoria": "Higiene personal",
+        "Nombre": "Cloralex",
+        "Descripcion": "Su nuevo material biodegradable ayuda a reducir el impacto ambiental.",
+        "DescripcionLarga": "Cloralex es una marca de productos de limpieza con un nuevo material biodegradable que ayuda a reducir el impacto ambiental. Su poderosa fórmula elimina eficazmente los gérmenes y las bacterias, manteniendo tu hogar limpio y protegido. Con Cloralex, puedes contribuir al cuidado del medio ambiente mientras mantienes tu hogar seguro y desinfectado.",
+        "Precio": 4.99,
+        "Imagen1": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/10.jpg?raw=true",
+        "Imagen2": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/10.png?raw=true",
+        "Imagen3": "https://github.com/Rodri0701/Limpieza-Plus/blob/master/imagenes/10.png?raw=true"
+    }
 ]

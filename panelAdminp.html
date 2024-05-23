@@ -92,7 +92,7 @@
       }
 
       // Mostrar pedidos
-      fetch("/data/pedidos.json")
+      fetch("data/pedidos.json")
         .then((response) => response.json())
         .then((data) => {
           showOrders(data.orders);

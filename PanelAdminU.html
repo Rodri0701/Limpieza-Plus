@@ -242,7 +242,7 @@
       });
 
       // Simulación de carga de usuarios desde un archivo JSON
-      fetch('/data/usuarios.json')
+      fetch('data/usuarios.json')
         .then(response => response.json())
         .then(data => {
           users = data.customer; // Almacenar los usuarios en el array

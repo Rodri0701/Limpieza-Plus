@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración de Usuarios</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .container {
+      max-width: 1250px;
+    }
+    .user-column {
+      padding: 0 10px;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 24px;
+      margin-bottom: 0;
+    }
+    .card-body {
+      padding: 20px;
+    }
+    .card-footer {
+      padding: 10px 20px;
+      background-color: #3cc0c0;
+    }
+    .btn-edit,
+    .btn-delete {
+      margin-right: 15px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <!-- Logotipo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-top">
+        MANGACKEET_ADMIN
+      </a>
+      <!-- Botón para dispositivos móviles -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="panelAdmin.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="PanelAdminU.html">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="panelAdminp.html">Pedidos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <div class="header">
+      <h2 class="mb-4">Panel de Administración de Usuarios</h2>
+      <a href="login.html" class="btn btn-primary">Ir a Login</a>
+    </div>
+    <div class="row">
+      <!-- Columna de usuarios -->
+      <div class="col-md-12 user-column" id="user-container">
+        <h3>Usuarios</h3>
+        <button id="addUserBtn" class="btn btn-success mb-4">Añadir Usuario</button>
+        <div class="row" id="user-list">
+          <!-- Los usuarios se cargarán aquí -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de añadir usuario -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModalLabel">Añadir Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="addUserForm">
+            <div class="form-group">
+              <label for="addUserName">Nombre</label>
+              <input type="text" class="form-control" id="addUserName" required>
+            </div>
+            <div class="form-group">
+              <label for="addUserEmail">Email</label>
+              <input type="email" class="form-control" id="addUserEmail" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Añadir Usuario</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de editar usuario -->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Editar Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="editUserForm">
+            <div class="form-group">
+              <label for="editUserName">Nombre</label>
+              <input type="text" class="form-control" id="editUserName" required>
+            </div>
+            <div class="form-group">
+              <label for="editUserEmail">Email</label>
+              <input type="email" class="form-control" id="editUserEmail" required>
+            </div>
+            <input type="hidden" id="editUserId">
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS y dependencias -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const userContainer = document.getElementById("user-list");
+      let users = []; // Array para almacenar los usuarios
+
+      // Función para mostrar los usuarios
+      function showUsers() {
+        userContainer.innerHTML = ''; // Limpiar el contenedor de usuarios
+        users.forEach((user) => {
+          const card = document.createElement("div");
+          card.classList.add("col-md-4");
+
+          const userCard = document.createElement("div");
+          userCard.classList.add("card");
+
+          const cardBody = document.createElement("div");
+          cardBody.classList.add("card-body");
+
+          const cardTitle = document.createElement("h5");
+          cardTitle.classList.add("card-title");
+          cardTitle.textContent = user.nombre; // Cambiado a 'nombre'
+          cardBody.appendChild(cardTitle);
+
+          const cardText = document.createElement("p");
+          cardText.classList.add("card-text");
+          cardText.textContent = user.correo_electronico; // Cambiado a 'correo_electronico'
+          cardBody.appendChild(cardText);
+
+          userCard.appendChild(cardBody);
+
+          const cardFooter = document.createElement("div");
+          cardFooter.classList.add("card-footer");
+
+          const editButton = document.createElement("button");
+          editButton.classList.add("btn", "btn-primary", "btn-edit");
+          editButton.innerHTML = '<i class="fas fa-edit"></i> Editar';
+          editButton.addEventListener("click", function () {
+            // Llenar el formulario de edición con los datos del usuario seleccionado
+            document.getElementById("editUserId").value = user.id;
+            document.getElementById("editUserName").value = user.nombre; // Cambiado a 'nombre'
+            document.getElementById("editUserEmail").value = user.correo_electronico; // Cambiado a 'correo_electronico'
+            // Mostrar el modal de edición
+            $('#editModal').modal('show');
+          });
+          cardFooter.appendChild(editButton);
+
+          const deleteButton = document.createElement("button");
+          deleteButton.classList.add("btn", "btn-danger", "btn-delete");
+          deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Eliminar';
+          deleteButton.addEventListener("click", function () {
+            card.remove();
+            // Eliminar el usuario del array
+            users = users.filter(u => u.id !== user.id);
+          });
+          cardFooter.appendChild(deleteButton);
+
+          userCard.appendChild(cardFooter);
+
+          card.appendChild(userCard);
+          userContainer.appendChild(card);
+        });
+      }
+
+      // Event listener para mostrar el modal de añadir usuario
+      document.getElementById("addUserBtn").addEventListener("click", function () {
+        $('#addModal').modal('show');
+      });
+
+      // Event listener para añadir el usuario desde el formulario
+      document.getElementById("addUserForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const newUser = {
+          id: users.length > 0 ? users[users.length - 1].id + 1 : 1, // Generar un nuevo ID para el usuario
+          nombre: document.getElementById("addUserName").value, // Cambiado a 'nombre'
+          correo_electronico: document.getElementById("addUserEmail").value // Cambiado a 'correo_electronico'
+        };
+        // Agregar el nuevo usuario al arreglo
+        users.push(newUser);
+        // Mostrar los usuarios actualizados
+        showUsers();
+        // Cerrar el modal
+        $('#addModal').modal('hide');
+      });
+
+      // Event listener para editar el usuario desde el formulario
+      document.getElementById("editUserForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const userId = parseInt(document.getElementById("editUserId").value);
+        const newName = document.getElementById("editUserName").value;
+        const newEmail = document.getElementById("editUserEmail").value;
+        // Actualizar los detalles del usuario
+        const userIndex = users.findIndex(u => u.id === userId);
+        if (userIndex !== -1) {
+          users[userIndex].nombre = newName; // Cambiado a 'nombre'
+          users[userIndex].correo_electronico = newEmail; // Cambiado a 'correo_electronico'
+          // Mostrar los usuarios actualizados
+          showUsers();
+          // Cerrar el modal
+          $('#editModal').modal('hide');
+        }
+      });
+
+      // Simulación de carga de usuarios desde un archivo JSON
+      fetch('/data/usuarios.json')
+        .then(response => response.json())
+        .then(data => {
+          users = data.customer; // Almacenar los usuarios en el array
+          showUsers(); // Mostrar los usuarios
+        })
+        .catch(error => console.error('Error al obtener los usuarios:', error));
+    });
+  </script>
+</body>
+</html>

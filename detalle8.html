@@ -260,6 +260,34 @@
       }
       
   }).render('#paypal-button');
+  // Agregar evento para enviar la reseña
+  document.getElementById('reviewForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar el envío del formulario por defecto
+      
+      // Obtener los valores del formulario
+      var userName = document.getElementById('userName').value;
+      var userReview = document.getElementById('userReview').value;
+      var userRating = document.getElementById('userRating').value;
+      
+      // Crear un nuevo elemento de reseña
+      var newReview = document.createElement('div');
+      newReview.classList.add('comentario');
+      newReview.innerHTML = `
+        <p class="usuario">${userName}</p>
+        <p class="fecha">${new Date().toLocaleDateString('es-MX')}</p>
+        <p class="rating">${'★'.repeat(userRating)}</p>
+        <p>${userReview}</p>
+      `;
+      
+      // Agregar la nueva reseña al contenedor de reseñas
+      var reviewsContainer = document.getElementById('reviewsContainer');
+      reviewsContainer.insertBefore(newReview, reviewsContainer.firstChild);
+      
+      // Limpiar el formulario después de enviar la reseña
+      document.getElementById('userName').value = '';
+      document.getElementById('userReview').value = '';
+      document.getElementById('userRating').value = '';
+    });
 </script>
 <!-- Aqui termina la logica de paypal y de su boton: -->
 </body>

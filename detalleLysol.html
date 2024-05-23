@@ -93,27 +93,38 @@
     .reseña {
       width: 80%;
       margin: 50px auto;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra para el contenedor de reseñas */
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #ffffff;
     }
+
     .reseña h3 {
       font-size: 25px;
       text-align: center;
       margin-bottom: 20px;
     }
+
     .reseña .comentario {
       background-color: #f2f2f2;
       padding: 20px;
       border-radius: 10px;
       margin-bottom: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para cada reseña individual */
     }
+
     .reseña .comentario p {
       font-size: 18px;
     }
+
     .reseña .comentario .usuario {
       font-weight: bold;
     }
+
     .reseña .comentario .fecha {
       color: #888;
     }
+
 
     @media (max-width: 768px) {
       .tarjeta-detalle {
@@ -258,6 +269,34 @@
       }
       
   }).render('#paypal-button');
+    // Agregar evento para enviar la reseña
+    document.getElementById('reviewForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar el envío del formulario por defecto
+      
+      // Obtener los valores del formulario
+      var userName = document.getElementById('userName').value;
+      var userReview = document.getElementById('userReview').value;
+      var userRating = document.getElementById('userRating').value;
+      
+      // Crear un nuevo elemento de reseña
+      var newReview = document.createElement('div');
+      newReview.classList.add('comentario');
+      newReview.innerHTML = `
+        <p class="usuario">${userName}</p>
+        <p class="fecha">${new Date().toLocaleDateString('es-MX')}</p>
+        <p class="rating">${'★'.repeat(userRating)}</p>
+        <p>${userReview}</p>
+      `;
+      
+      // Agregar la nueva reseña al contenedor de reseñas
+      var reviewsContainer = document.getElementById('reviewsContainer');
+      reviewsContainer.insertBefore(newReview, reviewsContainer.firstChild);
+      
+      // Limpiar el formulario después de enviar la reseña
+      document.getElementById('userName').value = '';
+      document.getElementById('userReview').value = '';
+      document.getElementById('userRating').value = '';
+    });
 </script>
 <!-- Aqui termina la logica de paypal y de su boton: -->
 </body>

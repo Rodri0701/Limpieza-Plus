@@ -12,94 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="Panel.css">
     <style>
-        .container {
-            max-width: 1250px;
-        }
-
-        .product-column {
-            padding: 0 10px;
-        }
-
-        .tarjeta-producto {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
-    text-align: center;
-    width: 300px;
-    height: 450px; /* Altura fija para todas las tarjetas */
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
-    box-shadow: 0px 12px 20px rgba(46, 175, 210, 1.5);
-}
-
-.tarjeta-producto img {
-    width: 100%;
-    height: 200px; /* Altura fija para la imagen */
-    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
-    margin: 0;
-    display: block;
-}
-
-.card-body {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card-title {
-    font-size: 24px;
-    margin: 10px 0;
-    flex-shrink: 0; /* Evita que el título se reduzca */
-}
-
-.card-text {
-    flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 10px;
-}
-
-.card-price {
-    margin-top: 10px;
-    flex-shrink: 0; /* Evita que el precio se reduzca */
-}
-
-.card-footer {
-    padding: 10px 20px;
-    background-color: #f8f9fa;
-    display: flex;
-    justify-content: center;
-}
-
-
-        .card-footer {
-            padding: 10px 20px;
-            background-color: #f8f9fa;
-        }
-
-        .btn-edit,
-        .btn-delete {
-            margin-right: 15px;
-        }
-
-        .card-text {
-            margin-bottom: 10px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .contenido {
-            padding: 20px;
-            text-align: center !important;
-        }
+      
     </style>
 </head>
 
@@ -114,10 +27,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav custom-nav">
                 <li class="nav-item custom-item">
-                    <a class="nav-link custom-link" href="PanelAdminU.html">Usuarios</a>
+                    <a class="nav-link custom-link" href="Princi.html">Usuarios</a>
                 </li>
                 <li class="nav-item custom-item">
-                    <a class="nav-link custom-link" href="panelAdminp.html">Pedidos</a>
+                    <a class="nav-link custom-link" href="#producte">Productos</a>
                 </li>
             </ul>
         </div>
@@ -131,7 +44,7 @@
             <!-- Columna de productos -->
             <div class="col-md-12 product-column" id="product-container">
                 <h3>Productos</h3>
-                <button id="addProductBtn" class="btn btn-success mb-4" style="background-color: blue; border-color: blue;">Añadir Producto</button>
+                <button id="addProductBtn" class="btn btn-add-product mb-4">Añadir Producto</button>
                 <div class="row" id="product-list">
                     <!-- Los productos se cargarán aquí -->
                 </div>
@@ -160,16 +73,8 @@
                             <textarea class="form-control" id="editDescription" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="editPrice">Precio</label>
-                            <input type="number" class="form-control" id="editPrice" required>
-                        </div>
-                        <div class="form-group">
                             <label for="editThumbnail">URL de la Imagen</label>
-                            <input type="url" class="form-control" id="editThumbnail">
-                        </div>
-                        <div class="form-group">
-                            <label for="editImage">Nueva Imagen</label>
-                            <input type="file" class="form-control" id="editImage" accept="image/*">
+                            <input type="url" class="form-control" id="editThumbnail" required>
                         </div>
                         <input type="hidden" id="editProductId">
                         <button type="submit" class="btn btn-primary">Guardar cambios</button>
@@ -200,13 +105,14 @@
                             <textarea class="form-control" id="addDescription" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
+                            <label for="addThumbnail">URL de la Imagen</label>
+                            <input type="url" class="form-control" id="addThumbnail" required>
+                        </div>
+                        <div class="form-group">
                             <label for="addPrice">Precio</label>
                             <input type="number" class="form-control" id="addPrice" required>
                         </div>
-                        <div class="form-group">
-                            <label for="productImage">Imagen</label>
-                            <input type="file" id="productImage" accept="image/*">
-                        </div>
+                        
                         <button type="submit" class="btn btn-primary">Añadir Producto</button>
                     </form>
                 </div>
@@ -231,70 +137,70 @@
             }
 
             // Función para crear una tarjeta de producto
-            function createProductCard(product, index) {
-                const card = document.createElement("div");
-                card.classList.add("col-md-4", "mb-4");
+           function createProductCard(product, index) {
+    const card = document.createElement("div");
+    card.classList.add("col-md-4", "mb-4", "d-flex", "justify-content-center");
 
-                const productCard = document.createElement("div");
-                productCard.classList.add("card", "tarjeta-producto");
-                productCard.dataset.productId = index;
+    const productCard = document.createElement("div");
+    productCard.classList.add("card", "tarjeta-producto");
+    productCard.dataset.productId = index;
 
-                const thumbnail = document.createElement("img");
-                thumbnail.classList.add("card-img-top", "thumbnail");
-                thumbnail.src = product.imagen;
-                thumbnail.alt = product.nombre;
-                productCard.appendChild(thumbnail);
+    const thumbnail = document.createElement("img");
+    thumbnail.classList.add("card-img-top", "thumbnail");
+    thumbnail.src = product.imagen;
+    thumbnail.alt = product.nombre;
+    productCard.appendChild(thumbnail);
 
-                const cardBody = document.createElement("div");
-                cardBody.classList.add("card-body");
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
 
-                const cardTitle = document.createElement("h5");
-                cardTitle.classList.add("card-title");
-                cardTitle.textContent = product.nombre;
-                cardBody.appendChild(cardTitle);
+    const cardTitle = document.createElement("h5");
+    cardTitle.classList.add("card-title");
+    cardTitle.textContent = product.nombre;
+    cardBody.appendChild(cardTitle);
 
-                const cardText = document.createElement("p");
-                cardText.classList.add("card-text");
-                cardText.textContent = product.descripcion;
-                cardBody.appendChild(cardText);
+    const cardText = document.createElement("p");
+    cardText.classList.add("card-text");
+    cardText.textContent = product.descripcion;
+    cardBody.appendChild(cardText);
+    const cardPrice = document.createElement("p");
+cardPrice.classList.add("card-text");
+cardPrice.textContent = "Precio: $" + product.precio.toString(); // Convierte el precio a cadena de texto
+cardBody.appendChild(cardPrice);
 
-                const cardPrice = document.createElement("p");
-                cardPrice.classList.add("card-text", "card-price");
-                cardPrice.textContent = "Precio: $" + product.precio.toFixed(2);
-                cardBody.appendChild(cardPrice);
 
-                productCard.appendChild(cardBody);
+    productCard.appendChild(cardBody);
 
-                const cardFooter = document.createElement("div");
-                cardFooter.classList.add("card-footer");
+    const cardFooter = document.createElement("div");
+    cardFooter.classList.add("card-footer");
 
-                const editButton = document.createElement("button");
-                editButton.classList.add("btn", "btn-primary", "btn-edit");
-                editButton.innerHTML = '<i class="fas fa-edit"></i>';
-                editButton.addEventListener("click", function () {
-                    currentEditCard = productCard;
-                    document.getElementById("editTitle").value = product.nombre;
-                    document.getElementById("editDescription").value = product.descripcion;
-                    document.getElementById("editPrice").value = product.precio;
-                    document.getElementById("editThumbnail").value = product.imagen;
-                    document.getElementById("editProductId").value = index;
-                    $('#editModal').modal('show');
-                });
-                cardFooter.appendChild(editButton);
+    const editButton = document.createElement("button");
+    editButton.classList.add("btn", "btn-primary", "btn-edit");
+    editButton.innerHTML = '<i class="fas fa-edit"></i> Editar';
+    editButton.addEventListener("click", function () {
+        currentEditCard = productCard;
+        document.getElementById("editTitle").value = product.nombre;
+        document.getElementById("editDescription").value = product.descripcion;
+        document.getElementById("editThumbnail").value = product.imagen;
+        document.getElementById("editProductId").value = index;
+        $('#editModal').modal('show');
+    });
+    cardFooter.appendChild(editButton);
 
-                const deleteButton = document.createElement("button");
-                deleteButton.classList.add("btn", "btn-danger", "btn-delete");
-                deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
-                deleteButton.addEventListener("click", function () {
-                    productCard.remove();
-                });
-                cardFooter.appendChild(deleteButton);
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("btn", "btn-danger", "btn-delete");
+    deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Eliminar';
+    deleteButton.addEventListener("click", function () {
+        productCard.remove();
+    });
+    cardFooter.appendChild(deleteButton);
 
-                productCard.appendChild(cardFooter);
+    productCard.appendChild(cardFooter);
 
-                card.appendChild(productCard);
-                productContainer.appendChild(card);
-            }
+    card.appendChild(productCard);
+    productContainer.appendChild(card);
+}
+
 
             // Mostrar productos
             fetch('data/productos.json')
@@ -311,13 +217,23 @@
 
             // Event listener para añadir el producto desde el formulario
             document.getElementById("addForm").addEventListener("submit", function (event) {
-                event.preventDefault();
-                const newProduct = {
-                    nombre: document.getElementById("addTitle").value,
-                    descripcion: document.getElementById("addDescription").value,
-                    precio: parseFloat(document.getElementById("addPrice").value),
-                    imagen: URL.createObjectURL(document.getElementById("productImage").files[0])
-                };
+    event.preventDefault();
+
+    // Obtener los valores del formulario
+    const nombre = document.getElementById("addTitle").value;
+    const descripcion = document.getElementById("addDescription").value;
+    const imagen = document.getElementById("addThumbnail").value;
+    const precio = document.getElementById("addPrice").value;
+
+    // Crear el nuevo producto con los datos del formulario
+    const newProduct = {
+        nombre: nombre,
+        descripcion: descripcion,
+        imagen: imagen,
+        precio: precio || "$0 Mx"  // Si no se ingresó un precio, usar el predeterminado
+    };
+
+                
                 const newProductIndex = document.querySelectorAll('.product-column .card').length;
                 createProductCard(newProduct, newProductIndex);
                 $('#addModal').modal('hide');
@@ -330,19 +246,10 @@
                 const updatedTitle = document.getElementById("editTitle").value;
                 const updatedDescription = document.getElementById("editDescription").value;
                 const updatedThumbnail = document.getElementById("editThumbnail").value;
-                const updatedPrice = parseFloat(document.getElementById("editPrice").value);
-                const updatedImageFile = document.getElementById("editImage").files[0];
 
                 currentEditCard.querySelector(".card-title").textContent = updatedTitle;
                 currentEditCard.querySelector(".card-text").textContent = updatedDescription;
-                currentEditCard.querySelector(".card-price").textContent = "Precio: $" + updatedPrice.toFixed(2);
-                
-                if (updatedImageFile) {
-                    const updatedImageUrl = URL.createObjectURL(updatedImageFile);
-                    currentEditCard.querySelector(".card-img-top").src = updatedImageUrl;
-                } else {
-                    currentEditCard.querySelector(".card-img-top").src = updatedThumbnail;
-                }
+                currentEditCard.querySelector(".card-img-top").src = updatedThumbnail;
 
                 $('#editModal').modal('hide');
             });

@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="Princi.css">
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <!-- Google tag (gtag.js) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4WMSS4Y8K"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-V4WMSS4Y8K');
   </script>
-<!-- Aqui iniciamos el boton de paypal NO MODIFICABLE -->
-<script
-src="https://www.paypal.com/sdk/js?client-id=AbaYO3JQ8ZeiaV3AhCQbMHCvKuRnAbo-J3syUPwFrGgk2QLbQq-cW6C3FrjqyjsBLj7uxp26ngUYSnvP&buyer-country=MX&currency=MXN&components=buttons&enable-funding=venmo"
-data-sdk-integration-source="developer-studio"
+  <title>Limpieza Plus</title>
+  <meta name="description" content="Tu Solución de Limpieza Profesional">
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Carrusel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <!-- Enlace a la fuente Minecraftia -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="Princi.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Aqui iniciamos el boton de paypal NO MODIFICABLE -->
+  <script
+  src="https://www.paypal.com/sdk/js?client-id=AbaYO3JQ8ZeiaV3AhCQbMHCvKuRnAbo-J3syUPwFrGgk2QLbQq-cW6C3FrjqyjsBLj7uxp26ngUYSnvP&buyer-country=MX&currency=MXN&components=buttons&enable-funding=venmo"
+  data-sdk-integration-source="developer-studio"
 ></script>
 
 <!-- Aqui termina el inicio del boton -->
@@ -89,50 +97,47 @@ data-sdk-integration-source="developer-studio"
 </head>
 <body>
 <!-- Navbar -->
-<div class="container_hed navbar-expand-lg navbar-light bg-light">
+<div class="container_hed">
   <a class="navbar-brand" href="#"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
-  <div>
-<div class="col">
-  <!-- Barra de búsqueda -->
-    <form id="searchForm" class="form-inline my-2 my-lg-0" style="padding: 10px;">
-      <input class="search-input form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search" id="searchInput">
-      <button class=" btn  my-2 my-sm-0" type="button" id="searchButton" style="background-color: rgb(207, 207, 207); width: 60px;"><i class="fas fa-search icon"></i></button>
-      <a class="custom-link" href="carrito.html"><i class="fas fa-shopping-cart fa-2x" style="margin-left: 50px; color: black;"></i></a>
+  <div class="container mt-3">
+    <form id="searchForm" class="form-inline my-2 my-lg-0 justify-content-center">
+      <input class="form-control mr-sm-2 search-input" type="search" placeholder="Buscar producto" aria-label="Search" id="searchInput">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchButton" style=" background-color: rgb(207, 207, 207); border-color: rgb(207, 207, 207);"><i class="fas fa-search" style="color: grey;"></i></button>
+      <a class="nav-link" href="carrito.html"><i class="fas fa-shopping-cart fa-2x icon_car" style="color: black;"></i></a>
     </form>
-</div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon" style="color: rgba(252, 252, 252, 0.973);"></span>
+    </div>
+ </div> 
+<nav class="navbar navbar-expand-lg navbar-light bg-light mt-3" style="background-color: rgb(11, 158, 243);">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <div class=" justify-content-end" id="navbarNav" style="background-color: rgb(11, 158, 243); width: 100%; border-radius: 5px;">
-    <ul class="navbar-nav custom-nav">
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav" style="background-color: rgb(11, 158, 243);">
+    <ul class="navbar-nav w-100 justify-content-around">
       <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="Princi.html">Inicio</a>
+        <a class="nav-link custom-link text-center" href="Princi.html">Inicio</a>
       </li>
       <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="#producte">Productos</a>
+        <a class="nav-link custom-link text-center" href="Princi.html">Productos</a>
       </li>
       <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="Login.html">Inicio Sesion</a>
+        <a class="nav-link custom-link text-center" href="Login.html">Inicio Sesion</a>
       </li>
       <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="#Foot">Contacto</a>
+        <a class="nav-link custom-link text-center" href="Princi.html">Contacto</a>
       </li>
       <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="LoginAdm.html">Administrador</a>
+        <a class="nav-link custom-link text-center" href="LoginAdm.html">Administrador</a>
       </li>
       <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="perfil.html">Mi cuenta</a>
+        <a class="nav-link custom-link text-center" href="perfil.html">Mi cuenta</a>
       </li>
       <li class="nav-item custom-item">
-        <a class="nav-link custom-link" href="favoritos.html">Lista de favoritos</a>
+        <a class="nav-link custom-link text-center" href="favoritos.html">Lista de favoritos</a>
       </li>
     </ul>
   </div>
 </nav>
-</div>
-</div>
+
     <div class="tarjeta-detalle">
       <img src="imagenes/4.jpg" alt="Producto Grande">
       <div class="contenido">

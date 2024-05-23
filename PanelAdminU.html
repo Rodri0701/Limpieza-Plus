@@ -8,40 +8,41 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
   <link rel="stylesheet" href="Panel.css">
-
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     .container {
       max-width: 1250px;
     }
-    .user-column {
-      padding: 0 10px;
-    }
-    .card {
-      margin-bottom: 20px;
-    }
-    .card-title {
-      font-size: 24px;
-      margin-bottom: 0;
-    }
-    .card-body {
-      padding: 20px;
-    }
-    .card-footer {
-      padding: 10px 20px;
-      background-color: #3cc0c0;
-    }
-    .btn-edit,
-    .btn-delete {
-      margin-right: 15px;
-    }
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
+      font-style: italic;
+    }
+    .table thead th {
+      vertical-align: middle;
+      background-color: #f1f1f1;
+      color: rgb(196, 226, 255);
+    }
+    .table tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .table tbody tr:hover {
+      background-color: #e6f7ff;
+    }
+    .btn-edit,
+    .btn-delete {
+      margin-right: 5px;
+    }
+    .btn-edit {
+      /*background-color: #4CAF50;*/
+      color: white;
+    }
+    .btn-delete {
+      background-color: #f44336;
+      color: white;
     }
   </style>
 </head>
@@ -56,7 +57,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav custom-nav">
             <li class="nav-item custom-item">
-                <a class="nav-link custom-link" href="PanelAdminU.html">Usuarios</a>
+                <a class="nav-link custom-link" href="Adminpanel.html">Productos</a>
             </li>
             <li class="nav-item custom-item">
                 <a class="nav-link custom-link" href="panelAdminp.html">Pedidos</a>
@@ -72,10 +73,20 @@
       <!-- Columna de usuarios -->
       <div class="col-md-12 user-column" id="user-container">
         <h3>Usuarios</h3>
-        <button id="addUserBtn" class="btn btn-success mb-4">Añadir Usuario</button>
-        <div class="row" id="user-list">
-          <!-- Los usuarios se cargarán aquí -->
-        </div>
+        <button id="addUserBtn" class="btn btn-success mb-4" style="background-color: blue; border-color: blue;">Añadir Usuario</button>
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="user-list">
+            <!-- Los usuarios se cargarán aquí -->
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -144,61 +155,52 @@
       const userContainer = document.getElementById("user-list");
       let users = []; // Array para almacenar los usuarios
 
-      // Función para mostrar los usuarios
+      // Función para mostrar los usuarios en la tabla
       function showUsers() {
         userContainer.innerHTML = ''; // Limpiar el contenedor de usuarios
         users.forEach((user) => {
-          const card = document.createElement("div");
-          card.classList.add("col-md-4");
+          const row = document.createElement("tr");
 
-          const userCard = document.createElement("div");
-          userCard.classList.add("card");
+          const cellId = document.createElement("td");
+          cellId.textContent = user.id;
+          row.appendChild(cellId);
 
-          const cardBody = document.createElement("div");
-          cardBody.classList.add("card-body");
+          const cellName = document.createElement("td");
+          cellName.textContent = user.nombre;
+          row.appendChild(cellName);
 
-          const cardTitle = document.createElement("h5");
-          cardTitle.classList.add("card-title");
-          cardTitle.textContent = user.nombre; // Cambiado a 'nombre'
-          cardBody.appendChild(cardTitle);
+          const cellEmail = document.createElement("td");
+          cellEmail.textContent = user.correo_electronico;
+          row.appendChild(cellEmail);
 
-          const cardText = document.createElement("p");
-          cardText.classList.add("card-text");
-          cardText.textContent = user.correo_electronico; // Cambiado a 'correo_electronico'
-          cardBody.appendChild(cardText);
-
-          userCard.appendChild(cardBody);
-
-          const cardFooter = document.createElement("div");
-          cardFooter.classList.add("card-footer");
+          const cellActions = document.createElement("td");
 
           const editButton = document.createElement("button");
           editButton.classList.add("btn", "btn-primary", "btn-edit");
-          editButton.innerHTML = '<i class="fas fa-edit"></i> Editar';
+          editButton.innerHTML = '<i class="fas fa-edit"></i>';
           editButton.addEventListener("click", function () {
             // Llenar el formulario de edición con los datos del usuario seleccionado
             document.getElementById("editUserId").value = user.id;
-            document.getElementById("editUserName").value = user.nombre; // Cambiado a 'nombre'
-            document.getElementById("editUserEmail").value = user.correo_electronico; // Cambiado a 'correo_electronico'
+            document.getElementById("editUserName").value = user.nombre;
+            document.getElementById("editUserEmail").value = user.correo_electronico;
             // Mostrar el modal de edición
             $('#editModal').modal('show');
           });
-          cardFooter.appendChild(editButton);
+          cellActions.appendChild(editButton);
 
           const deleteButton = document.createElement("button");
           deleteButton.classList.add("btn", "btn-danger", "btn-delete");
-          deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Eliminar';
+          deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
           deleteButton.addEventListener("click", function () {
-            card.remove();
             // Eliminar el usuario del array
             users = users.filter(u => u.id !== user.id);
+            // Mostrar los usuarios actualizados
+            showUsers();
           });
-          cardFooter.appendChild(deleteButton);
+          cellActions.appendChild(deleteButton);
 
-          userCard.appendChild(cardFooter);
-
-          card.appendChild(userCard);
-          userContainer.appendChild(card);
+          row.appendChild(cellActions);
+          userContainer.appendChild(row);
         });
       }
 
@@ -212,8 +214,8 @@
         event.preventDefault();
         const newUser = {
           id: users.length > 0 ? users[users.length - 1].id + 1 : 1, // Generar un nuevo ID para el usuario
-          nombre: document.getElementById("addUserName").value, // Cambiado a 'nombre'
-          correo_electronico: document.getElementById("addUserEmail").value // Cambiado a 'correo_electronico'
+          nombre: document.getElementById("addUserName").value,
+          correo_electronico: document.getElementById("addUserEmail").value
         };
         // Agregar el nuevo usuario al arreglo
         users.push(newUser);
@@ -232,8 +234,8 @@
         // Actualizar los detalles del usuario
         const userIndex = users.findIndex(u => u.id === userId);
         if (userIndex !== -1) {
-          users[userIndex].nombre = newName; // Cambiado a 'nombre'
-          users[userIndex].correo_electronico = newEmail; // Cambiado a 'correo_electronico'
+          users[userIndex].nombre = newName;
+          users[userIndex].correo_electronico = newEmail;
           // Mostrar los usuarios actualizados
           showUsers();
           // Cerrar el modal

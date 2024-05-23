@@ -169,11 +169,11 @@ owl-carousel .owl-item img {
 
 
 .tarjeta-producto img {
-width: 50%;
-height: auto;
-max-width: 100%;
-margin: 40px auto 0; /* Centrar y añadir margen superior */
-display: block;
+  width: 100%;
+  height: 200px; /* Altura fija para la imagen */
+  object-fit: contain; /* Asegura que la imagen se ajuste al contenedor */
+  margin: 0;
+  display: block;
 }
 
 

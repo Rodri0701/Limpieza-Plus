@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel de Administración de Usuarios</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+  <link rel="stylesheet" href="Panel.css">
+
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -42,37 +46,27 @@
   </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <!-- Logotipo -->
-      <a class="navbar-brand" href="index.html">
-        <img src="logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-top">
-        MANGACKEET_ADMIN
-      </a>
-      <!-- Botón para dispositivos móviles -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="Princi.html"><img src="https://i.ibb.co/5x56BZV/logo.png" alt="Mi Logo" title="MiLog"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Enlaces de navegación -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="panelAdmin.html">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="PanelAdminU.html">Usuarios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="panelAdminp.html">Pedidos</a>
-          </li>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav custom-nav">
+            <li class="nav-item custom-item">
+                <a class="nav-link custom-link" href="PanelAdminU.html">Usuarios</a>
+            </li>
+            <li class="nav-item custom-item">
+                <a class="nav-link custom-link" href="panelAdminp.html">Pedidos</a>
+            </li>
         </ul>
-      </div>
     </div>
-  </nav>
+</nav>
   <div class="container mt-5">
     <div class="header">
       <h2 class="mb-4">Panel de Administración de Usuarios</h2>
-      <a href="login.html" class="btn btn-primary">Ir a Login</a>
     </div>
     <div class="row">
       <!-- Columna de usuarios -->
